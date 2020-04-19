@@ -1,4 +1,3 @@
-
     const suspectClueSentences = [
         "I didn't know this SPECIES could be described as CHARACTERISTIC",
         "People were calling this SPECIES the NICKNAME",
@@ -54,7 +53,7 @@
     ];
 
 function SetupGame( code = "" ) {
-    prandom = new Math.seedrandom( code );
+    prandom = new alea( code );
 
     clues = generateSuspectClues( getRandomElement( peculiarSuspects ) );
     // console.log( clues );
@@ -65,6 +64,7 @@ function SetupGame( code = "" ) {
         ComfyCipher.Encode.Morse,
     ];
     console.log( clues.map( c => getRandomElement( ciphers )( c ) ) );
+    document.querySelector( "#clues" ).innerHTML = "";
     clues.forEach( ( c, index ) => {
         let clue = getRandomElement( ciphers )( c );
         let contain = document.createElement( "div" );
@@ -83,7 +83,7 @@ function SetupGame( code = "" ) {
     });
 }
 
-var prandom = new Math.seedrandom();
+var prandom = new alea(" ");
 var clues = [];
 
 const deciphers = [
@@ -113,7 +113,7 @@ function scrambleCharacters( messageOld, messageNew, progress ) {
     }
     let numCharToReplace = Math.floor( messageNew.length * progress );
     for( let i = 0; i < numCharToReplace; i++ ) {
-        var index = Math.floor( Math.random()*messageNew.length );
+        var index = Math.floor( Math.random() * messageNew.length );
         messageOld = messageOld.replaceAt( index, messageNew.substr( index, 1 ) );
     }
     return messageOld;

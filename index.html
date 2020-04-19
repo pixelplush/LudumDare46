@@ -4,13 +4,13 @@
 		<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 		<!-- <script>class Modal{get Node(){return this._obj}get Classes(){return this._classes}get OnAccepts(){return this._onaccepts}get Dialog(){return this._obj.getElementsByClassName(this._classes.dialog)[0]}constructor(t,e={close:"modal-close",accept:"modal-accept",container:"modal-container",dialog:"modal-dialog"}){this._obj=t,this._classes=e,this._onaccepts=[],this.init()}init(){let t=this;this._obj.addEventListener("click",e=>{e.classList.contains(t._classes.container)&&t.close()});let e=this._obj.getElementsByClassName(this._classes.close);for(let s=0;s<e.length;s++){e[s].addEventListener("click",()=>{t.close()})}let s=this._obj.getElementsByClassName(this._classes.close);for(let e=0;e<s.length;e++){const c=s[e];c.addEventListener("click",()=>{t.accept(c)})}}open(){this._obj.setAttribute("hidden","")}close(){this._obj.removeAttribute("hidden")}accept(t){for(let e=0;e<this._onaccepts.length;e++)this._onaccepts[e](this,t)}addActivator(t){let e=this;t.addEventListener("click",()=>{e.open()})}addActivators(t){let e=this;for(let s=0;s<t.length;s++){t[s].addEventListener("click",()=>{e.open()})}}addClose(t){let e=this;t.addEventListener("click",()=>{e.close()})}addAcceptor(t){let e=this;t.addEventListener("click",()=>{e.accept(t)})}onAccept(t){this._onaccepts.push(t)}}</script> -->
 		<link href="https://cdn.jsdelivr.net/gh/nostalgic-css/NES.css@2.3.0/docs/lib/dialog-polyfill.css" rel="stylesheet" crossorigin="anonymous"/>
-<script src="https://cdn.jsdelivr.net/gh/nostalgic-css/NES.css@2.3.0/docs/lib/dialog-polyfill.js" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/gh/nostalgic-css/NES.css@2.3.0/docs/lib/dialog-polyfill.js" crossorigin="anonymous"></script>
 		<!-- latest -->
 		<link href="https://unpkg.com/nes.css@2.3.0/css/nes-core.min.css" rel="stylesheet">
 		<link href="https://unpkg.com/nes.icons@2.0.1/css/nes-icons.min.css" rel="stylesheet">
 		<link href="web/style.css" rel="stylesheet">
 		<script src="https://cdn.jsdelivr.net/npm/comfycipher@latest/web/comfycipher.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/lib/alea.min.js"></script>
 	</head>
 	<body>
 		<div class="modal-container" hidden="true">
@@ -77,7 +77,12 @@
 						<button id="tab-suspects" type="button" class="nes-btn is-warning"><i class="nes-icon eye"></i> Suspects</button>
 						<button id="tab-weapons" type="button" class="nes-btn is-error"><i class="nes-icon bomb"></i> Weapons</button>
 					</p>
-					<div id="content-main"></div>
+					<div id="content-main">
+						<div class="nes-field">
+						  <label for="code_field">Puzzle Code</label>
+						  <input type="text" id="code_field" class="nes-input">
+						</div>
+					</div>
 					<div id="content-memos">
 						<div id="clues" class="word-wrap">
 						</div>
@@ -144,7 +149,15 @@
 
 				document.getElementById( 'dialog-dark' ).show();
 
-				SetupGame( 1234 );
+				var randomCode = Math.random().toString(36).substr(2, 5).toUpperCase().trim();
+				document.getElementById( "code_field" ).value = randomCode;
+				document.getElementById( "code_field" ).oninput = function( ev ) {
+					console.log( "changed" );
+					randomCode = document.getElementById( "code_field" ).value;
+					console.log( randomCode );
+					SetupGame( randomCode );
+				};
+				SetupGame( randomCode );
 			};
 		</script>
 	</body>
