@@ -14,11 +14,11 @@
 	<body>
 		<div class="modal-container" hidden="true">
 			<div class="modal">
-				<dialog class="nes-dialog" id="dialog-dark">
+				<dialog class="nes-dialog is-dark" id="dialog-dark">
 					<form method="dialog">
 						<p class="nes-text is-primary">Secret Decoder</p>
 						<div class="nes-table-responsive">
-	  						<table class="nes-table is-bordered is-centered">
+	  						<table class="nes-table is-dark is-bordered is-centered">
 								<!-- <thead>
 									<tr>
 										<th></th>
@@ -45,7 +45,7 @@
 											</center>
 										</td>
 										<td>
-											<textarea id="decode-text" rows="15" class="nes-textarea"></textarea>
+											<textarea id="decode-text" rows="15" class="nes-textarea is-dark"></textarea>
 										</td>
 									</tr>
 							    </tbody>
@@ -69,7 +69,7 @@
 				</div>
 			</header>
 			<main class="main-content">
-				<section class="nes-container with-title is-rounded">
+				<section class="nes-container is-dark with-title is-rounded">
 					<p class="title">
 						<button id="tab-main" type="button" class="nes-btn is-primary">Main</button>
 						<button id="tab-memos" type="button" class="nes-btn is-success"><i class="nes-icon search"></i> Memos</button>
@@ -206,7 +206,7 @@
 				let clue = getRandomElement( ciphers )( c );
 				let contain = document.createElement( "div" );
 				contain.setAttribute( "id", `clue-${index}` );
-				contain.setAttribute( "class", "nes-container is-rounded" );
+				contain.setAttribute( "class", "nes-container is-rounded is-dark" );
 				let elem = document.createElement( "p" );
 				elem.innerText = clue;
 				contain.append( elem );

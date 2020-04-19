@@ -1,3 +1,7 @@
+html, body {
+    background-color: #212529
+}
+
 main {
   padding: 20px;
 }
