@@ -1,0 +1,44 @@
+main {
+  padding: 20px;
+}
+
+.nes-container + .nes-container {
+  margin-top: 20px;
+}
+
+.word-wrap {
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.any-wrap {
+	overflow-wrap: anywhere;
+}
+
+.short-height {
+	height: 16px;
+}
+
+.modal-container {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 999;
+}
+
+.modal {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
+	width: 75%;
+	background-color: #212529;
+
+	max-width: 75vw;
+	max-height: 75vh;
+}

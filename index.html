@@ -1,12 +1,130 @@
 <html>
 	<head>
 		<title>Ludum Dare 46</title>
+		<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+		<!-- latest -->
+		<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+		<link href="https://unpkg.com/nes.icons@latest/css/nes.min.css" rel="stylesheet" />
+		<link href="https://cdn.jsdelivr.net/npm/nes.icons@latest/css/nes-icons.min.css" rel="stylesheet" />
+		<link href="web/style.css" rel="stylesheet">
 		<script src="https://cdn.jsdelivr.net/npm/comfycipher@latest/web/comfycipher.min.js"></script>
 	</head>
 	<body>
-		<div id="clues">
+		<div class="modal-container" hidden="true">
+			<div class="modal">
+				<dialog class="nes-dialog" id="dialog-dark">
+					<form method="dialog">
+						<p class="nes-text is-primary">Secret Decoder</p>
+						<div class="nes-table-responsive">
+	  						<table class="nes-table is-bordered is-centered">
+								<!-- <thead>
+									<tr>
+										<th></th>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead> -->
+								<tbody>
+									<tr>
+										<td width="25%">
+											<center>
+												<button type="button" class="nes-btn is-primary" onclick="decode(0)">A</button>
+												<button type="button" class="nes-btn is-primary" onclick="decode(1)">B</button>
+												<button type="button" class="nes-btn is-primary" onclick="decode(2)">C</button>
+												<button type="button" class="nes-btn is-primary" onclick="decode(3)">D</button>
+												<button type="button" class="nes-btn is-primary" onclick="decode(4)">E</button>
+												<button type="button" class="nes-btn is-primary" onclick="decode(5)">F</button>
+												<button type="button" class="nes-btn is-primary" onclick="decode(6)">G</button>
+												<button type="button" class="nes-btn is-primary" onclick="decode(7)">H</button>
+												<button type="button" class="nes-btn is-primary" onclick="decode(8)">I</button>
+												<button type="button" class="nes-btn is-primary" onclick="decode(9)">J</button>
+												<button type="button" class="nes-btn is-primary" onclick="decode(10)">K</button>
+												<button type="button" class="nes-btn is-primary" onclick="decode(11)">L</button>
+											</center>
+										</td>
+										<td>
+											<textarea id="decode-text" rows="15" class="nes-textarea"></textarea>
+										</td>
+									</tr>
+							    </tbody>
+							</table>
+						</div>
+						<progress id="decode-progress" class="nes-progress short-height is-primary" value="0" max="100"></progress>
+						<menu class="dialog-menu">
+							<button type="button" class="nes-btn">Cancel</button>
+							<button type="button" class="nes-btn is-error">Reset</button>
+							<button type="button" class="nes-btn is-warning">Save</button>
+						</menu>
+					</form>
+				</dialog>
+			</div>
+		</div>
+		<div class="container">
+			<header class="sticky">
+				<div class="container">
+					<div class="nav-brand">
+					</div>
+				</div>
+			</header>
+			<main class="main-content">
+				<section class="nes-container with-title is-rounded">
+					<p class="title">
+						<button id="tab-main" type="button" class="nes-btn is-secondary">Main</button>
+						<button id="tab-memos" type="button" class="nes-btn is-success">Memos</button>
+						<button id="tab-decode" type="button" class="nes-btn is-primary">Decode</button>
+						<button id="tab-suspects" type="button" class="nes-btn is-warning"><i class="nes-icon nes-icon-eye"></i>Suspects</button>
+						<button id="tab-weapons" type="button" class="nes-btn is-error">Weapons</button>
+					</p>
+					<div id="content-main"></div>
+					<div id="content-memos">
+						<div id="clues" class="word-wrap">
+						</div>
+					</div>
+					<div id="content-decode">
+					</div>
+					<div id="content-suspects"></div>
+					<div id="content-weapons"></div>
+				</section>
+			</main>
 		</div>
 		<script>
+			document.querySelector( "#tab-main" ).addEventListener( "click", function( ev ) {
+				Array.from( document.querySelectorAll( '[id^="content-"]' ) ).forEach( x => x.setAttribute( "hidden", true ) );
+				document.querySelector( "#content-main" ).removeAttribute( "hidden" );
+			});
+			document.querySelector( "#tab-memos" ).addEventListener( "click", function( ev ) {
+				Array.from( document.querySelectorAll( '[id^="content-"]' ) ).forEach( x => x.setAttribute( "hidden", true ) );
+				document.querySelector( "#content-memos" ).removeAttribute( "hidden" );
+			});
+			document.querySelector( "#tab-decode" ).addEventListener( "click", function( ev ) {
+				Array.from( document.querySelectorAll( '[id^="content-"]' ) ).forEach( x => x.setAttribute( "hidden", true ) );
+				document.querySelector( "#content-decode" ).removeAttribute( "hidden" );
+			});
+			document.querySelector( "#tab-suspects" ).addEventListener( "click", function( ev ) {
+				Array.from( document.querySelectorAll( '[id^="content-"]' ) ).forEach( x => x.setAttribute( "hidden", true ) );
+				document.querySelector( "#content-suspects" ).removeAttribute( "hidden" );
+			});
+			document.querySelector( "#tab-weapons" ).addEventListener( "click", function( ev ) {
+				Array.from( document.querySelectorAll( '[id^="content-"]' ) ).forEach( x => x.setAttribute( "hidden", true ) );
+				document.querySelector( "#content-weapons" ).removeAttribute( "hidden" );
+			});
+			Array.from( document.querySelectorAll( '[id^="content-"]' ) ).forEach( x => x.setAttribute( "hidden", true ) );
+			document.querySelector( "#content-main" ).removeAttribute( "hidden" );
+
+			document.querySelector( "#tab-decode" ).addEventListener( "click", function( ev ) {
+				document.querySelector( ".modal-container" ).removeAttribute( "hidden" );
+			});
+
+			document.getElementById( 'dialog-dark' ).show();
+
+			document.querySelector( ".modal" ).addEventListener( "click", function( ev ) {
+				ev.stopPropagation();
+			});
+
+			document.querySelector( ".modal-container" ).addEventListener( "click", function( ev ) {
+				document.querySelector( ".modal-container" ).setAttribute( "hidden", "true" );
+			});
+
 			const suspectClueSentences = [
 				"I didn't know this SPECIES could be described as CHARACTERISTIC",
 				"People were calling this SPECIES the NICKNAME",
@@ -72,10 +190,44 @@
 			console.log( clues.map( c => getRandomElement( ciphers )( c ) ) );
 			clues.forEach( c => {
 				let clue = getRandomElement( ciphers )( c );
+				let contain = document.createElement( "div" );
+				contain.setAttribute( "class", "nes-container is-rounded" );
 				let elem = document.createElement( "p" );
 				elem.innerText = clue;
-				document.querySelector( "#clues" ).append( elem );
+				contain.append( elem );
+				document.querySelector( "#clues" ).append( contain );
+				contain.addEventListener( "click", function( ev ) {
+					document.querySelector( "#decode-text" ).value = clue;
+					originalText = clue;
+					document.querySelector( ".modal-container" ).removeAttribute( "hidden" );
+				});
 			});
+
+			const deciphers = [
+				ComfyCipher.Decode.Reverse,
+				ComfyCipher.Decode.Base64,
+				ComfyCipher.Decode.Rot13,
+				ComfyCipher.Decode.Morse,
+			];
+			var originalText = "";
+			var decodeTimer = null;
+			var decodeProgress = 0;
+			function decode( decoderId ) {
+				if( decodeTimer ) {
+					clearInterval( decodeTimer );
+				}
+				decodeProgress = 0;
+				decodeTimer = setInterval( () => {
+					decodeProgress += 1;
+					document.querySelector( "#decode-progress" ).value = decodeProgress;
+					if( decodeProgress >= 100 ) {
+						clearInterval( decodeTimer );
+						decodeTimer = null;
+						document.querySelector( "#decode-text" ).value = deciphers[ decoderId ]( document.querySelector( "#decode-text" ).value );
+						document.querySelector( "#decode-progress" ).value = 0;
+					}
+				}, 30 );
+			}
 
 			function generateSuspectClues( suspect, number = 10 ) {
 				let sus = [];
