@@ -1,0 +1,174 @@
+[
+	{
+		name: "Seattle",
+		what3words: "crowd.next.stops",
+		lat: 47.606209,
+		long: -122.332069,
+		landmarks: [ "Space Needle" ],
+		food: [],
+	},
+	{
+		name: "Prague",
+		what3words: "overnight.deflect.residual",
+		lat: 50.075531,
+		long: 14.437815
+	},
+	{
+		name: "Helsinki",
+		what3words: "tailed.gagging.trips",
+		lat: 60.16986,
+		long: 24.938395
+	},
+	{
+		name: "Phoenix",
+		what3words: "achieving.goats.again",
+		lat: 33.448375,
+		long: -112.074047
+	},
+	{
+		name: "Paris",
+		what3words: "tensions.incline.cutlets",
+		lat: 48.856606,
+		long: 2.352241
+	},
+	{
+		name: "San Diego",
+		what3words: "mice.librarian.lasted",
+		lat: 32.715731,
+		long: -117.161074
+	},
+	{
+		name: "London",
+		what3words: "future.human.foster",
+		lat: 51.507344,
+		long: -0.127753
+	},
+	{
+		name: "Kosice",
+		what3words: "equal.vibe.fooling",
+		lat: 48.716378,
+		long: 21.261061
+	},
+	{
+		name: "New York",
+		what3words: "dress.sharp.brave",
+		lat: 40.712767,
+		long: -74.00596
+	},
+	{
+		name: "Wuhan",
+		what3words: "hush.stables.edit"
+	},
+	{
+		name: "St. Louis",
+		what3words: "hope.school.hype"
+	},
+	{
+		name: "Moscow",
+		what3words: "bonkers.develop.that"
+	},
+	{
+		name: "Iqaluit",
+		what3words: "ponies.dreamers.parity"
+	},
+	{
+		name: "Rome",
+		what3words: "mouth.dished.cheaply"
+	},
+	{
+		name: "Seoul",
+		what3words: "roofer.familiar.gave"
+	},
+	{
+		name: "Atlantis",
+		what3words: "caressing.coquettish.solve"
+	},
+	{
+		name: "Amsterdam",
+		what3words: "wardrobe.youthful.taped"
+	},
+	{
+		name: "Berlin",
+		what3words: "wharfs.straws.proceeds"
+	},
+	{
+		name: "Chicago",
+		what3words: "clap.spoil.item"
+	},
+	{
+		name: "Bratislava",
+		what3words: "gearbox.notebook.stuffing"
+	},
+	{
+		name: "Zurich",
+		what3words: "trailer.sung.believer"
+	},
+	{
+		name: "Montreal",
+		what3words: "issued.causes.shunted"
+	},
+	{
+		name: "Quebec",
+		what3words: "deliberately.backside.risks"
+	},
+	{
+		name: "Buenos Aires",
+		what3words: "cobbles.waitress.pardon"
+	},
+	{
+		name: "Tokyo",
+		what3words: "cheek.villas.wasp"
+	},
+	{
+		name: "Mombasa",
+		what3words: "gained.december.handrail"
+	},
+	{
+		name: "Cairo",
+		what3words: "bucks.taxpayers.steams"
+	},
+	{
+		name: "Miami",
+		what3words: "tamed.chin.chatted"
+	},
+	{
+		name: "Antarctica",
+		what3words: "operable.burner.breathes"
+	},
+	{
+		name: "Las Vegas",
+		what3words: "opera.tunnel.chair"
+	},
+	{
+		name: "Havana",
+		what3words: "juicing.enacted.panic"
+	},
+	{
+		name: "Woodbridge",
+		what3words: "angle.gates.listed"
+	},
+	{
+		name: "Washington D.C.",
+		what3words: "bottle.figure.bronze"
+	},
+	{
+		name: "Edinburgh",
+		what3words: "slide.wire.shave"
+	},
+	{
+		name: "Manchester",
+		what3words: "tight.tins.metro"
+	},
+	{
+		name: "Villach",
+		what3words: "diamond.start.altering"
+	},
+	{
+		name: "King's Lynn",
+		what3words: "cope.vivid.poker"
+	},
+	{
+		name: "Horsforth",
+		what3words: "silk.crowds.riots"
+	}
+]

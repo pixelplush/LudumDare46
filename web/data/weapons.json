@@ -1,0 +1,42 @@
+[
+	{
+		name: "Shrink Ray",
+		effect: "shrink",
+		sharpness: 2,
+		color: "blue",
+		size: "small",
+		type: "gun"
+	},
+	{
+		name: "Toilet Paper Vacuum",
+		effect: "steal toilet paper",
+		sharpness: 1,
+		color: "pink",
+		size: "medium",
+		type: "appliance"
+	},
+	{
+		name: "Chocolate Melting Laser",
+		effect: "melt chocolate",
+		sharpness: 2,
+		color: "brown",
+		size: "small",
+		type: "wristwatch"
+	},
+	{
+		name: "Over-cooked Chicken",
+		effect: "dry taste-buds",
+		sharpness: 0,
+		color: "dark brown",
+		size: "medium",
+		type: "food"
+	},
+	{
+		name: "Hydration Tank",
+		effect: "drown",
+		sharpness: 4,
+		color: "silver",
+		size: "large",
+		type: "vehicle"
+	}
+]

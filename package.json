@@ -1,0 +1,27 @@
+{
+  "name": "ludumdare46",
+  "version": "1.0.0",
+  "description": "Ludum Dare 46 Game Jam to Travel Back in Time and Save the Cheerleader and Save the World!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixelplush/LudumDare46.git"
+  },
+  "keywords": [
+    "Ludum",
+    "Dare",
+    "46"
+  ],
+  "author": "PixelPlush",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pixelplush/LudumDare46/issues"
+  },
+  "homepage": "https://github.com/pixelplush/LudumDare46#readme",
+  "dependencies": {
+    "webwebweb": "^1.2.0"
+  }
+}

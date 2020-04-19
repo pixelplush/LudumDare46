@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<title>Ludum Dare 46</title>
+		<script src="https://cdn.jsdelivr.net/npm/comfycipher@latest/web/comfycipher.min.js"></script>
+	</head>
+	<body>
+		<div id="clues">
+		</div>
+		<script>
+			const suspectClueSentences = [
+				"I didn't know this SPECIES could be described as CHARACTERISTIC",
+				"People were calling this SPECIES the NICKNAME",
+				"I heard they're AGE years old!",
+				"The SPECIES was GENDER",
+			];
+			const peculiarSuspects = [
+				{
+					name: "Captain of Catastrophe",
+					characteristics: [ "Pointy Ears", "Purrrfect Whiskers" ],
+					nicknames: [ "Catastrophe", "C-A-T", "Captain" ],
+					gender: "male",
+					species: "cat",
+					sound: [ "meow", "a-mews-ed" ],
+					age: "?"
+				},
+				{
+					name: "Sergeant Mayo",
+					characteristics: [ "Uniform", "Angry", "Cop", "Sarcastic" ],
+					nicknames: [ "Sergeant", "sarge" ],
+					gender: "male",
+					species: "condiment",
+					sound: [ "angry", "yelling" ],
+					age: 54
+				},
+				{
+					name: "Dr. D Dawson",
+					characteristics: [ "Meticulous", "Proper", "Clean", "Calculating", "Smart" ],
+					nicknames: [ "Doctor", "doc", "daws", "Deedeedee" ],
+					gender: "female",
+					species: "human",
+					sound: [ "calm", "alluring" ],
+					age: 26
+				},
+				{
+					name: "Jay Son",
+					characteristics: [ "Organized", "Clean-Shaven", "Hacker", "Computer-Geek", "Techie" ],
+					nicknames: [ "json", "jayjay" ],
+					gender: "male",
+					species: "artificial intelligence",
+					sound: [ "mumbling" ],
+					age: 2
+				},
+				{
+					name: "Melia Azedarach",
+					characteristics: [ "Smells Good", "Femme Fatale", "Stoic", "Doesn't Speak" ],
+					nicknames: [ "Killer Flower", "poison", "danger" ],
+					gender: "female",
+					species: "tree",
+					sound: [ "quiet" ],
+					age: 267
+				}
+			];
+
+			let clues = generateSuspectClues( getRandomElement( peculiarSuspects ) );
+			console.log( clues );
+			const ciphers = [
+				ComfyCipher.Encode.Reverse,
+				ComfyCipher.Encode.Base64,
+				ComfyCipher.Encode.Rot13,
+				ComfyCipher.Encode.Morse,
+			];
+			console.log( clues.map( c => getRandomElement( ciphers )( c ) ) );
+			clues.forEach( c => {
+				let clue = getRandomElement( ciphers )( c );
+				let elem = document.createElement( "p" );
+				elem.innerText = clue;
+				document.querySelector( "#clues" ).append( elem );
+			});
+
+			function generateSuspectClues( suspect, number = 10 ) {
+				let sus = [];
+				for( var i = 0; i < number; i++ ) {
+					let clue = getRandomElement( suspectClueSentences );
+					sus.push( replaceSuspectClue( suspect, clue ) );
+				}
+				return sus;
+			}
+
+			function replaceSuspectClue( suspect, sentence ) {
+				return sentence
+					.replace( /SPECIES/g, suspect.species )
+					.replace( /GENDER/g, suspect.gender )
+					.replace( /AGE/g, suspect.age )
+					.replace( /NICKNAME/g, getRandomElement( suspect.nicknames ) )
+					.replace( /CHARACTERISTIC/g, getRandomElement( suspect.characteristics ) )
+					.replace( /SOUND/g, getRandomElement( suspect.sound ) )
+			}
+
+			function getRandomInt( max ) {
+				return Math.floor( max * Math.random() );
+			}
+
+			function getRandomElement( arr ) {
+				return arr[ getRandomInt( arr.length ) ];
+			}
+
+			var seed = 1;
+			function pseudoRandom() {
+			    var x = Math.sin(seed++) * 10000;
+			    return x - Math.floor(x);
+			}
+		</script>
+	</body>
+</html>

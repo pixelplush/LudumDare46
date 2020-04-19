@@ -1,0 +1,47 @@
+[
+	{
+		name: "Captain of Catastrophe",
+		characteristics: [ "Pointy Ears", "Purrrfect Whiskers" ],
+		nicknames: [ "Catastrophe", "C-A-T", "Captain" ],
+		gender: "male",
+		species: "cat",
+		sound: [ "meow", "a-mews-ed" ],
+		age: -1
+	},
+	{
+		name: "Sergeant Mayo",
+		characteristics: [ "Uniform", "Angry", "Cop", "Sarcastic" ],
+		nicknames: [ "Sergeant", "sarge" ],
+		gender: "male",
+		species: "condiment",
+		sound: [ "angry", "yelling" ],
+		age: 54
+	},
+	{
+		name: "Dr. D Dawson",
+		characteristics: [ "meticulous", "proper", "clean", "calculating", "smart" ],
+		nicknames: [ "Doctor", "doc", "daws", "Deedeedee" ],
+		gender: "female",
+		species: "human",
+		sound: [ "calm", "alluring" ],
+		age: 26
+	},
+	{
+		name: "Jay Son",
+		characteristics: [ "Organized", "Clean-Shaven", "Hacker", "Computer-Geek", "Techie" ],
+		nicknames: [ "json", "jayjay" ],
+		gender: "male",
+		species: "artificial intelligence",
+		sound: [ "mumbling" ],
+		age: 2
+	},
+	{
+		name: "Melia Azedarach",
+		characteristics: [ "smells good", "Femme fatale", "stoic", "Doesn't speak" ],
+		nicknames: [ "Killer Flower", "poison", "danger" ],
+		gender: "female",
+		species: "tree",
+		sound: [],
+		age: 267
+	}
+]
