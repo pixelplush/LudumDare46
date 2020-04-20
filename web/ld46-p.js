@@ -240,10 +240,12 @@ var scenes = {
     showTablet: function() {
         document.querySelector(".scene > .tablet img").style.opacity = "1";
         document.querySelector(".game-container > .container").style.opacity = "1";
+        document.querySelector(".game-container").className = "game-container";
     },
     hideTablet: function() {
         document.querySelector(".scene > .tablet img").style.opacity = "0";
         document.querySelector(".game-container > .container").style.opacity = "0";
+        document.querySelector(".game-container").className = "game-container tablethide";
     },
 
     // 0 - 8, 8 is off

@@ -187,3 +187,12 @@ main {
 	90% { transform: translateX(1px) scale(0.6);}
 	100% { transform: translateX(1px) scale(0.6);}
 }
+
+.game-container .scene > .tablet,
+.game-container .container {
+	transition: margin-left 0.8s;
+}
+.game-container.tablethide .scene > .tablet,
+.game-container.tablethide .container {
+	margin-left: -700px;
+}

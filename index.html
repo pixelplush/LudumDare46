@@ -16,7 +16,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 	</head>
 	<body>
-		<div class="game-container">
+		<div class="game-container tablethide">
 			<div class="top-left front">
 				<button id="volume-control" type="button" class="nes-btn is-warning"><i id="volume-icon" class="fas fa-volume-mute"></i></button>
 			</div>
@@ -197,7 +197,9 @@
 				console.log( answer );
 				let win = checkAnswer( answer );
 				if( win ) {
-					console.log( "GG!" );
+					winScene();
+				} else {
+					wrongAnswer();
 				}
 			});
 
