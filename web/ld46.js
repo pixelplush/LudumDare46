@@ -109,6 +109,12 @@ async function SetupGame( code = "" ) {
         elem.setAttribute( "class", "title" );
         elem.innerText = w.name;
         contain.append( elem );
+
+        let mugshot = document.createElement( "div" );
+        mugshot.setAttribute( "class", "mugshot" );
+        mugshot.setAttribute( "data-id", index );
+        contain.append( mugshot );
+		
         let list = document.createElement( "ul" );
         list.setAttribute( "class", "nes-list is-disc nes-text is-error" );
 
