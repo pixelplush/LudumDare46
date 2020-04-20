@@ -31,6 +31,11 @@
 					<div class="tablet"></div>
 				</div>
 				<div class="tablet"></div>
+				<div class="start-game-container">
+					<button id="game-start">Start Game</button>
+					<button id="game-start-mute">Quiet Game (Muted Volume)</button>
+					<button id="game-start-twitch">Start with Twitch-Chat</button>
+				</div>
 			</div>
 			<div class="modal-container" hidden="true">
 				<div class="modal">
@@ -126,6 +131,7 @@
 		</div> <!-- .game-container -->
 		<script src="web/ld46.js"></script>
 		<script src="web/ld46-p.js"></script>
+		<script src="web/cutscenes.js"></script>
 		<script>
 			document.querySelector( "#tab-main" ).addEventListener( "click", function( ev ) {
 				sounds[ "button" ].play();
@@ -232,10 +238,10 @@
 					SetupGame( randomCode );
 				};
 				SetupGame( randomCode );
-				setTimeout( () => {
-					scenes.setBodyRight( true );
-					scenes.showTablet();
-				}, 1000 );
+				// setTimeout( () => {
+				// 	scenes.setBodyRight( true );
+				// 	scenes.showTablet();
+				// }, 1000 );
 			};
 		</script>
 	</body>

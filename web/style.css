@@ -29,6 +29,13 @@ main {
 	/* background-color: rgba(0, 0, 0, 0.5); */
 }
 
+.start-game-container {
+	position: absolute;
+	margin: auto;
+	width: 100%;
+	text-align: center;
+}
+
 .nes-container + .nes-container {
   margin-top: 20px;
 }
