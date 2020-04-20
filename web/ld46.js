@@ -94,9 +94,30 @@ async function SetupGame( code = "" ) {
     const ciphers = [
         ComfyCipher.Encode.Reverse,
         ComfyCipher.Encode.Base64,
+        ComfyCipher.Encode.Hexadecimal,
         ComfyCipher.Encode.Rot13,
+        function( text ) {
+            return ComfyCipher.Encode.Rot13( ComfyCipher.Encode.Reverse( text ) );
+        },
+        function( text ) {
+            return ComfyCipher.Encode.Rot13( ComfyCipher.Encode.Reverse( ComfyCipher.Encode.Base64( text ) ) );
+        },
+        ComfyCipher.Encode.Binary,
+        function( text ) {
+            return ComfyCipher.Encode.Binary( ComfyCipher.Encode.Base64( text ) );
+        },
+        function( text ) {
+            return ComfyCipher.Encode.Binary( ComfyCipher.Encode.Base64( ComfyCipher.Encode.Base64( text ) ) );
+        },
         ComfyCipher.Encode.Morse,
+        function( text ) {
+            return ComfyCipher.Encode.Morse( ComfyCipher.Encode.Hexadecimal( text ) );
+        },
+        function( text ) {
+            return ComfyCipher.Encode.Morse( ComfyCipher.Encode.Hexadecimal( ComfyCipher.Encode.Base64( text ) ) );
+        },
     ];
+    console.log( ComfyCipher );
     console.log( clues.map( c => getRandomElement( ciphers )( c ) ) );
     document.querySelector( "#clues" ).innerHTML = "";
     clues.forEach( ( c, index ) => {
@@ -123,8 +144,28 @@ var clues = [];
 const deciphers = [
     ComfyCipher.Decode.Reverse,
     ComfyCipher.Decode.Base64,
+    ComfyCipher.Decode.Hexadecimal,
     ComfyCipher.Decode.Rot13,
+    function( text ) {
+        return ComfyCipher.Decode.Reverse( ComfyCipher.Decode.Rot13( text ) );
+    },
+    function( text ) {
+        return ComfyCipher.Decode.Base64( ComfyCipher.Decode.Reverse( ComfyCipher.Decode.Rot13( text ) ) );
+    },
+    ComfyCipher.Decode.Binary,
+    function( text ) {
+        return ComfyCipher.Decode.Base64( ComfyCipher.Decode.Binary( text ) );
+    },
+    function( text ) {
+        return ComfyCipher.Decode.Base64( ComfyCipher.Decode.Base64( ComfyCipher.Decode.Binary( text ) ) );
+    },
     ComfyCipher.Decode.Morse,
+    function( text ) {
+        return ComfyCipher.Decode.Hexadecimal( ComfyCipher.Decode.Morse( text ) );
+    },
+    function( text ) {
+        return ComfyCipher.Decode.Base64( ComfyCipher.Decode.Hexadecimal( ComfyCipher.Decode.Morse( text ) ) );
+    },
 ];
 var clueIndex = -1;
 var originalText = "";
