@@ -14,6 +14,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/lib/alea.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/howler@2.1.3/dist/howler.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
 	</head>
 	<body>
 		<div class="game-container tablethide">
@@ -132,6 +133,7 @@
 		<script src="web/ld46.js"></script>
 		<script src="web/ld46-p.js"></script>
 		<script src="web/cutscenes.js"></script>
+		<script src="web/twitch.js"></script>
 		<script>
 			document.querySelector( "#tab-main" ).addEventListener( "click", function( ev ) {
 				sounds[ "button" ].play();
@@ -240,10 +242,10 @@
 					SetupGame( randomCode );
 				};
 				SetupGame( randomCode );
-				// setTimeout( () => {
-				// 	scenes.setBodyRight( true );
-				// 	scenes.showTablet();
-				// }, 1000 );
+				setTimeout( () => {
+					scenes.setBodyRight( true );
+					scenes.showTablet();
+				}, 1000 );
 			};
 		</script>
 	</body>
