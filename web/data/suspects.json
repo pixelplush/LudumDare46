@@ -6,7 +6,7 @@
 		"gender": "male",
 		"species": "cat",
 		"sound": [ "meow", "a-mews-ed" ],
-		"age": -1
+		"age": 666
 	},
 	{
 		"name": "Sergeant Mayo",
