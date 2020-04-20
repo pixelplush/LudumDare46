@@ -266,4 +266,31 @@ var scenes = {
     }
 };
 
+function winScene() {
+    var inp = document.querySelector( "#answer_field" ),
+        colors = ["", "#76c442"];
+    inp.style.backgroundColor = "#76c442";
+    var interval_cycle = 0,
+        interval = setInterval(function() {
+
+            inp.style.backgroundColor = colors[interval_cycle % 2];
+            if (interval_cycle == 4) {
+                clearInterval(interval);
+
+                // THIS IS FOR INSTA
+                // ending commands
+            }
+            interval_cycle++;
+        },400);
+}
+
+function wrongAnswer() {
+    document.querySelector( ".scene > .tablet" ).className = "tablet wrong";
+    document.querySelector( ".game-container > .container" ).className = "container wrong";
+    setTimeout(function() {
+        document.querySelector( ".scene > .tablet" ).className = "tablet";
+        document.querySelector( ".game-container > .container" ).className = "container";
+    }, 1000);
+}
+
 preloadImages(urls);
