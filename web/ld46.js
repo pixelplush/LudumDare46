@@ -1,3 +1,36 @@
+const soundDB = {
+	cancel: {
+		src: "web/assets/sfx/cancel.mp3",
+		volume: 1.0,
+		rate: 1.0,
+	},
+	answer: {
+		src: "web/assets/sfx/confirm1.mp3",
+		volume: 1.0,
+		rate: 1.0,
+	},
+	button: {
+		src: "web/assets/sfx/confirm2.mp3",
+		volume: 1.0,
+		rate: 1.0,
+		// rate: 4.0,
+	},
+	decode: {
+		src: "web/assets/sfx/decodephaser.mp3",
+		volume: 1.0,
+		// rate: 1.0,
+		rate: 1.0,
+	},
+};
+
+var sounds = {};
+Object.keys( soundDB ).map( s => {
+	sounds[ s ] = new Howl({
+		src: [ soundDB[ s ].src ],
+		rate: soundDB[ s ].rate
+	});
+});
+
 var clueSentences = [];
 var peculiarSuspects = [];
 var peculiarWeapons = [];
@@ -145,6 +178,7 @@ async function SetupGame( code = "" ) {
         contain.append( elem );
         document.querySelector( "#clues" ).append( contain );
         contain.addEventListener( "click", function( ev ) {
+			sounds[ "button" ].play();
             document.querySelector( "#decode-text" ).value = clue;
             clueIndex = index;
             originalText = clue;
@@ -210,23 +244,32 @@ function scrambleCharacters( messageOld, messageNew, progress ) {
 }
 
 function decode( decoderId ) {
-    if( decodeTimer ) {
-        clearInterval( decodeTimer );
-    }
-    decodeProgress = 0;
-    document.querySelector( "#decode-text" ).value = originalText;
-    decodedMessage = deciphers[ decoderId ]( originalText );// document.querySelector( "#decode-text" ).value );
-    decodeTimer = setInterval( () => {
-        decodeProgress += 1;
-        document.querySelector( "#decode-progress" ).value = decodeProgress;
-        document.querySelector( "#decode-text" ).value = scrambleCharacters( document.querySelector( "#decode-text" ).value, decodedMessage, Math.pow( decodeProgress / 100, 2 ) );
-        if( decodeProgress >= 100 ) {
-            clearInterval( decodeTimer );
-            decodeTimer = null;
-            document.querySelector( "#decode-text" ).value = decodedMessage;
-            document.querySelector( "#decode-progress" ).value = 0;
-        }
-    }, 30 );
+	try {
+
+	    if( decodeTimer ) {
+	        clearInterval( decodeTimer );
+	    }
+		sounds[ "decode" ].play();
+	    decodeProgress = 0;
+	    document.querySelector( "#decode-text" ).value = originalText;
+	    decodedMessage = deciphers[ decoderId ]( originalText );// document.querySelector( "#decode-text" ).value );
+	    decodeTimer = setInterval( () => {
+	        decodeProgress += 1;
+	        document.querySelector( "#decode-progress" ).value = decodeProgress;
+	        document.querySelector( "#decode-text" ).value = scrambleCharacters( document.querySelector( "#decode-text" ).value, decodedMessage, Math.pow( decodeProgress / 100, 2 ) );
+	        if( decodeProgress >= 100 ) {
+	            clearInterval( decodeTimer );
+	            decodeTimer = null;
+	            document.querySelector( "#decode-text" ).value = decodedMessage;
+	            document.querySelector( "#decode-progress" ).value = 0;
+	        }
+	    }, 30 );
+	}
+	catch( err ) {
+		sounds[ "decode" ].stop();
+		sounds[ "cancel" ].play();
+		document.querySelector( "#decode-text" ).value = "ERROR DECODING: \n" + originalText;
+	}
 }
 
 function generateClues( suspect, weapon, number = 20 ) {
