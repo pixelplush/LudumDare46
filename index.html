@@ -69,8 +69,8 @@
 							<progress id="decode-progress" class="nes-progress short-height is-primary" value="0" max="100"></progress>
 							<menu class="dialog-menu">
 								<button id="decode-cancel" type="button" class="nes-btn">Cancel</button>
-								<button id="decode-reset" type="button" class="nes-btn is-error">Reset</button>
-								<button id="decode-save" type="button" class="nes-btn is-warning">Save</button>
+								<!-- <button id="decode-reset" type="button" class="nes-btn is-error">Reset</button> -->
+								<button id="decode-save" type="button" class="nes-btn is-primary">Save</button>
 							</menu>
 						</form>
 					</dialog>
@@ -141,12 +141,12 @@
 			    document.querySelector( ".modal-container" ).setAttribute( "hidden", "true" );
 			});
 
-			document.querySelector( "#decode-reset" ).addEventListener( "click", function( ev ) {
-			    clearInterval( decodeTimer );
-			    decodeProgress = 0;
-			    document.querySelector( "#decode-progress" ).value = decodeProgress;
-			    document.querySelector( "#decode-text" ).value = originalText;
-			});
+			// document.querySelector( "#decode-reset" ).addEventListener( "click", function( ev ) {
+			//     clearInterval( decodeTimer );
+			//     decodeProgress = 0;
+			//     document.querySelector( "#decode-progress" ).value = decodeProgress;
+			//     document.querySelector( "#decode-text" ).value = originalText;
+			// });
 
 			document.querySelector( "#decode-save" ).addEventListener( "click", function( ev ) {
 			    document.querySelector( `#clue-${clueIndex}` ).innerText = document.querySelector( "#decode-text" ).value;

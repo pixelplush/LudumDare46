@@ -13,13 +13,14 @@ async function SetupGame( code = "" ) {
     peculiarSuspects.forEach( ( s, index ) => {
         let contain = document.createElement( "div" );
         contain.setAttribute( "id", `suspect-${index}` );
-        contain.setAttribute( "class", "nes-container is-rounded is-dark" );
+        contain.setAttribute( "class", "nes-container is-rounded is-dark with-title" );
         let elem = document.createElement( "p" );
+        elem.setAttribute( "class", "title" );
         elem.innerText = s.name;
         contain.append( elem );
 
         let list = document.createElement( "ul" );
-        list.setAttribute( "class", "nes-list is-circle" );
+        list.setAttribute( "class", "nes-list is-circle nes-text is-warning" );
 
         let basic = document.createElement( "li" );
         basic.innerText = `Gender: ${s.gender}`;
@@ -53,12 +54,13 @@ async function SetupGame( code = "" ) {
     peculiarWeapons.forEach( ( w, index ) => {
         let contain = document.createElement( "div" );
         contain.setAttribute( "id", `weapon-${index}` );
-        contain.setAttribute( "class", "nes-container is-rounded is-dark" );
+        contain.setAttribute( "class", "nes-container is-rounded is-dark with-title" );
         let elem = document.createElement( "p" );
+        elem.setAttribute( "class", "title" );
         elem.innerText = w.name;
         contain.append( elem );
         let list = document.createElement( "ul" );
-        list.setAttribute( "class", "nes-list is-disc" );
+        list.setAttribute( "class", "nes-list is-disc nes-text is-error" );
 
         let type = document.createElement( "li" );
         type.innerText = `Type: ${w.type}`;
@@ -124,8 +126,14 @@ async function SetupGame( code = "" ) {
         let clue = getRandomElement( ciphers )( c );
         let contain = document.createElement( "div" );
         contain.setAttribute( "id", `clue-${index}` );
-        contain.setAttribute( "class", "nes-container is-rounded is-dark" );
+        contain.setAttribute( "class", "nes-container is-rounded is-dark with-title" );
+        let title = document.createElement( "p" );
+        title.setAttribute( "class", "title" );
+        title.innerText = `Secret Memo #${index+1}`;
+        contain.append( title );
+
         let elem = document.createElement( "p" );
+        elem.setAttribute( "class", "nes-text is-success" );
         elem.innerText = clue;
         contain.append( elem );
         document.querySelector( "#clues" ).append( contain );
@@ -199,7 +207,8 @@ function decode( decoderId ) {
         clearInterval( decodeTimer );
     }
     decodeProgress = 0;
-    decodedMessage = deciphers[ decoderId ]( document.querySelector( "#decode-text" ).value );
+    document.querySelector( "#decode-text" ).value = originalText;
+    decodedMessage = deciphers[ decoderId ]( originalText );// document.querySelector( "#decode-text" ).value );
     decodeTimer = setInterval( () => {
         decodeProgress += 1;
         document.querySelector( "#decode-progress" ).value = decodeProgress;
