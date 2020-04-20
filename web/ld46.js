@@ -84,7 +84,10 @@ async function SetupGame( code = "" ) {
         document.querySelector( "#content-weapons" ).append( contain );
     });
 
-    clues = generateSuspectClues( getRandomElement( peculiarSuspects ) );
+    let suspect = getRandomElement( peculiarSuspects );
+    let weapon = getRandomElement( peculiarWeapons );
+
+    clues = generateClues( suspect, weapon );
     // Only keep unique clues
     clues = clues.filter( ( c, index ) => clues.indexOf( c ) === index );
     // console.log( clues );
@@ -169,16 +172,16 @@ function decode( decoderId ) {
     }, 30 );
 }
 
-function generateSuspectClues( suspect, number = 10 ) {
+function generateClues( suspect, weapon, number = 20 ) {
     let sus = [];
     for( var i = 0; i < number; i++ ) {
         let clue = getRandomElement( clueSentences );
-        sus.push( replaceSuspectClue( suspect, clue ) );
+        sus.push( replaceClue( suspect, weapon, clue ) );
     }
     return sus;
 }
 
-function replaceSuspectClue( suspect, sentence ) {
+function replaceClue( suspect, weapon, sentence ) {
     return sentence
         .replace( /SPECIES/g, suspect.species )
         .replace( /GENDER/g, suspect.gender )
@@ -186,6 +189,12 @@ function replaceSuspectClue( suspect, sentence ) {
         .replace( /NICKNAME/g, getRandomElement( suspect.nicknames ) )
         .replace( /CHARACTERISTIC/g, getRandomElement( suspect.characteristics ) )
         .replace( /SOUND/g, getRandomElement( suspect.sound ) )
+        .replace( /WEAPON/g, weapon.name )
+        .replace( /EFFECT/g, weapon.effect )
+        .replace( /SHARPNESS/g, weapon.sharpness < 1 ? "dull" : ( weapon.sharpness < 5 ? "tough" : "sharp" ) )
+        .replace( /COLOR/g, weapon.color )
+        .replace( /SIZE/g, weapon.size === "small" ? "small" : ( weapon.size === "medium" ? "big" : ( weapon.size === "large" ? "huge" : "mysterious in size" ) ) )
+        .replace( /TYPE/g, weapon.type )
 }
 
 function getRandomInt( max ) {
