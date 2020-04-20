@@ -128,8 +128,8 @@ function appendAll() {
     }
     images[58].style.opacity = "0";
     images[59].style.opacity = "0";
-    images[58].dataset.pose = 5;
-    images[59].dataset.pose = 5;
+    images[58].dataset.pose = 4;
+    images[59].dataset.pose = 4;
     images[58].dataset.state = 0;
     images[59].dataset.state = 1;
     document.querySelector(".scene .girl .mouth").appendChild( images[58] );

@@ -171,6 +171,10 @@
 					SetupGame( randomCode );
 				};
 				SetupGame( randomCode );
+				setTimeout( () => {
+					scenes.setBodyRight( true );
+					scenes.showTablet();
+				}, 1000 );
 			};
 		</script>
 	</body>
