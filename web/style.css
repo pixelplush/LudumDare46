@@ -11,6 +11,17 @@ main {
     overflow-y: scroll;
 }
 
+.front {
+	z-index: 1000;
+}
+
+.top-left {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	/* background-color: rgba(0, 0, 0, 0.5); */
+}
+
 .top-right {
 	position: absolute;
 	top: 20px;
@@ -137,5 +148,5 @@ main {
 #content-suspects .mugshot[data-id="0"] { background-image: url(./assets/villains/captain_catastrophe.jpg); }
 #content-suspects .mugshot[data-id="1"] { background-image: url(./assets/villains/sergeant_mayo.jpg); }
 #content-suspects .mugshot[data-id="2"] { background-image: url(./assets/villains/ddd.jpg); }
-#content-suspects .mugshot[data-id="3"] { background-image: url(./assets/villains/captain_catastrophe.jpg); }
+#content-suspects .mugshot[data-id="3"] { background-image: url(./assets/villains/jay_son.jpg); }
 #content-suspects .mugshot[data-id="4"] { background-image: url(./assets/villains/melia_azedarach.jpg); }

@@ -30,6 +30,12 @@ Object.keys( soundDB ).map( s => {
 		rate: soundDB[ s ].rate
 	});
 });
+Howler.volume( 0 ); // Default to muted
+let music = new Howl( {
+	src: [ "web/assets/music/LD46_BG.mp3" ],
+	loop: true,
+});
+music.play();
 
 var clueSentences = [];
 var peculiarSuspects = [];
