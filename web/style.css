@@ -56,7 +56,7 @@ main {
 /* Patrik's CSS */
 .container {
     padding: 20px;
-	position: fixed;
+	position: absolute;
 	top: 26px;
 	left: 30px;
 	/* width: 703px; */
