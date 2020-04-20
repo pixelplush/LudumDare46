@@ -40,16 +40,18 @@ music.play();
 var clueSentences = [];
 var peculiarSuspects = [];
 var peculiarWeapons = [];
+var peculiarLocations = [];
 var suspect;
 var weapon;
-var location;
-var date;
+var answerLocation;
+var answerDate;
 
 async function SetupGame( code = "" ) {
     prandom = new alea( code );
 
     peculiarSuspects = await fetch( "web/data/suspects.json" ).then( r => r.json() );
     peculiarWeapons = await fetch( "web/data/weapons.json" ).then( r => r.json() );
+	peculiarLocations = await fetch( "web/data/locations.json" ).then( r => r.json() );
     clueSentences = await fetch( "web/data/clues.json" ).then( r => r.json() );
 
     // Populate Suspects List
@@ -136,10 +138,10 @@ async function SetupGame( code = "" ) {
 
     suspect = getRandomElement( peculiarSuspects );
     weapon = getRandomElement( peculiarWeapons );
-	// location;
-	// date;
+	answerLocation = getRandomElement( peculiarLocations );
+	answerDate = getRandomInt( 203 ) + 2020;
 
-    clues = generateClues( suspect, weapon );
+    clues = generateClues( suspect, weapon, answerLocation, answerDate );
     // Only keep unique clues
     clues = clues.filter( ( c, index ) => clues.indexOf( c ) === index );
     // console.log( clues );
@@ -283,23 +285,22 @@ function decode( decoderId ) {
 	}
 }
 
-function generateClues( suspect, weapon, number = 20 ) {
+function generateClues( suspect, weapon, loc, date, number = 40 ) {
     let sus = [];
     for( var i = 0; i < number; i++ ) {
         let clue = getRandomElement( clueSentences );
-        sus.push( replaceClue( suspect, weapon, clue ) );
+        sus.push( replaceClue( suspect, weapon, loc, date, clue ) );
     }
     return sus;
 }
 
 function checkAnswer( text ) {
-	let answer = `${suspect.name} with a ${weapon.name} at [CITY] in [YEAR]`;
+	let answer = `${suspect.name} with a ${weapon.name} at ${answerLocation.name} in ${answerDate}`;
+	// console.log( answer );
 	return text.toLowerCase().trim() === answer.toLowerCase();
-	// location;
-	// date;
 }
 
-function replaceClue( suspect, weapon, sentence ) {
+function replaceClue( suspect, weapon, loc, date, sentence ) {
     return sentence
         .replace( /SPECIES/g, suspect.species )
         .replace( /GENDER/g, suspect.gender )
@@ -313,6 +314,12 @@ function replaceClue( suspect, weapon, sentence ) {
         .replace( /COLOR/g, weapon.color )
         .replace( /SIZE/g, weapon.size === "small" ? "small" : ( weapon.size === "medium" ? "big" : ( weapon.size === "large" ? "huge" : "mysterious in size" ) ) )
         .replace( /TYPE/g, weapon.type )
+		.replace( /W3W/g, loc.what3words )
+		.replace( /LAT/g, loc.lat )
+		.replace( /LON/g, loc.long )
+		.replace( /LANDMARK/g, getRandomElement( loc.landmarks ) )
+		.replace( /FOOD/g, getRandomElement( loc.food ) )
+		.replace( /YEAR/g, date )
 }
 
 function getRandomInt( max ) {

@@ -1,318 +1,290 @@
 [
 	{
-		name: "Seattle",
-		what3words: "crowd.next.stops",
-		lat: 47.606209,
-		long: -122.332069,
-		landmarks: [ "Space Needle" ],
-		food: [ "Geoduck" ],
+		"name": "Seattle",
+		"what3words": "crowd.next.stops",
+		"lat": 47.606209,
+		"long": -122.332069,
+		"landmarks": [ "Space Needle" ],
+		"food": [ "Geoduck" ]
 	},
 	{
-		name: "Prague",
-		what3words: "overnight.deflect.residual",
-		lat: 50.075531,
-		long: 14.437815,
-		landmarks: [ "Charles Bridge" ],
-		food: [ "Svickova" ],
+		"name": "Prague",
+		"what3words": "overnight.deflect.residual",
+		"lat": 50.075531,
+		"long": 14.437815,
+		"landmarks": [ "Charles Bridge" ],
+		"food": [ "Svickova" ]
 	},
 	{
-		name: "Helsinki",
-		what3words: "tailed.gagging.trips",
-		lat: 60.16986,
-		long: 24.938395,
-		landmarks: [ "Suomenlinna" ],
-		food: [ "Lingonberry Pie" ],
+		"name": "Helsinki",
+		"what3words": "tailed.gagging.trips",
+		"lat": 60.16986,
+		"long": 24.938395,
+		"landmarks": [ "Suomenlinna" ],
+		"food": [ "Lingonberry Pie" ]
 	},
 	{
-		name: "Tucson",
-		what3words: "chills.receive.shiny",
-		lat: 32.222604,
-		long: -110.974704,
-		landmarks: [ "Arizona/Sonora Desert Museum" ],
-		food: [ "Sonoran Hotdog" ],
+		"name": "Tucson",
+		"what3words": "chills.receive.shiny",
+		"lat": 32.222604,
+		"long": -110.974704,
+		"landmarks": [ "Arizona/Sonora Desert Museum" ],
+		"food": [ "Sonoran Hotdog" ]
 	},
 	{
-		name: "Paris",
-		what3words: "tensions.incline.cutlets",
-		lat: 48.856606,
-		long: 2.352241,
-		landmarks: [ "Louvre Museum" ],
-		food: [ "Crepes" ],
+		"name": "Paris",
+		"what3words": "tensions.incline.cutlets",
+		"lat": 48.856606,
+		"long": 2.352241,
+		"landmarks": [ "Louvre Museum" ],
+		"food": [ "Crepes" ]
 	},
 	{
-		name: "San Diego",
-		what3words: "mice.librarian.lasted",
-		lat: 32.715731,
-		long: -117.161074,
-		landmarks: [ "USS Midway Museum" ],
-		food: [ "Street Tacos" ],
+		"name": "San Diego",
+		"what3words": "mice.librarian.lasted",
+		"lat": 32.715731,
+		"long": -117.161074,
+		"landmarks": [ "USS Midway Museum" ],
+		"food": [ "Street Tacos" ]
 	},
 	{
-		name: "London",
-		what3words: "future.human.foster",
-		lat: 51.507344,
-		long: -0.127753,
-		landmarks: [ "Buckingham Palace" ],
-		food: [ "Chicken Tikka Masala" ],
+		"name": "London",
+		"what3words": "future.human.foster",
+		"lat": 51.507344,
+		"long": -0.127753,
+		"landmarks": [ "Buckingham Palace" ],
+		"food": [ "Chicken Tikka Masala" ]
 	},
 	{
-		name: "Kosice",
-		what3words: "equal.vibe.fooling",
-		lat: 48.716378,
-		long: 21.261061,
-		landmarks: [ "St. Elizabeth's Cathedral" ],
-		food: [ "Bryndzove Halusky" ],
+		"name": "Kosice",
+		"what3words": "equal.vibe.fooling",
+		"lat": 48.716378,
+		"long": 21.261061,
+		"landmarks": [ "St. Elizabeth's Cathedral" ],
+		"food": [ "Bryndzove Halusky" ]
 	},
 	{
-		name: "New York",
-		what3words: "dress.sharp.brave",
-		lat: 40.712767,
-		long: -74.00596,
-		landmarks: [ "Central Park" ],
-		food: [ "Baked Pretzels" ],
+		"name": "New York",
+		"what3words": "dress.sharp.brave",
+		"lat": 40.712767,
+		"long": -74.00596,
+		"landmarks": [ "Central Park" ],
+		"food": [ "Baked Pretzels" ]
 	},
 	{
-		name: "Wuhan",
-		what3words: "hush.stables.edit"
-		lat: 30.592861,
-		long: 114.305529,
-		landmarks: [ "Yellow Crane Tower" ],
-		food: [ "Reganmian" ],
-
+		"name": "Wuhan",
+		"what3words": "hush.stables.edit",
+		"lat": 30.592861,
+		"long": 114.305529,
+		"landmarks": [ "Yellow Crane Tower" ],
+		"food": [ "Reganmian" ]
 	},
 	{
-		name: "St. Louis",
-		what3words: "hope.school.hype"
-		lat: 38.627008,
-		long: -90.19941,
-		landmarks: [ "Gateway Arch" ],
-		food: [ "Toasted Ravioli" ],
-
-
+		"name": "St. Louis",
+		"what3words": "hope.school.hype",
+		"lat": 38.627008,
+		"long": -90.19941,
+		"landmarks": [ "Gateway Arch" ],
+		"food": [ "Toasted Ravioli" ]
 	},
 	{
-		name: "Moscow",
-		what3words: "bonkers.develop.that"
-		lat: 55.755835,
-		long: 37.617304,
-		landmarks: [ "Red Square" ],
-		food: [ "Varenniki" ],
-
-
+		"name": "Moscow",
+		"what3words": "bonkers.develop.that",
+		"lat": 55.755835,
+		"long": 37.617304,
+		"landmarks": [ "Red Square" ],
+		"food": [ "Varenniki" ]
 	},
 	{
-		name: "Iqaluit",
-		what3words: "ponies.dreamers.parity"
-		lat: 63.746698,
-		long: -68.516965,
-		landmarks: [ "Nunatta Sunakkutaangit Museum" ],
-		food: [ "Ptarmigan" ],
+		"name": "Iqaluit",
+		"what3words": "ponies.dreamers.parity",
+		"lat": 63.746698,
+		"long": -68.516965,
+		"landmarks": [ "Nunatta Sunakkutaangit Museum" ],
+		"food": [ "Ptarmigan" ]
 	},
 	{
-		name: "Rome",
-		what3words: "mouth.dished.cheaply"
-		lat: 41.902692,
-		long: 12.49625,
-		landmarks: [ "St. Peter's Basilica" ],
-		food: [ "Maritozzi" ],
-
+		"name": "Rome",
+		"what3words": "mouth.dished.cheaply",
+		"lat": 41.902692,
+		"long": 12.49625,
+		"landmarks": [ "St. Peter's Basilica" ],
+		"food": [ "Maritozzi" ]
 	},
 	{
-		name: "Seoul",
-		what3words: "roofer.familiar.gave"
-		lat: 37.566529,
-		long: 126.977976,
-		landmarks: [ "Gyeongbokgung Palace" ],
-		food: [ " Bibimbap" ],
-	},
-
-	{
-		name: "Amsterdam",
-		what3words: "wardrobe.youthful.taped"
-		lat: 52.366686,
-		long: 4.894531,
-		landmarks: [ "Rijksmuseum" ],
-		food: [ "Poffertjes" ],
+		"name": "Seoul",
+		"what3words": "roofer.familiar.gave",
+		"lat": 37.566529,
+		"long": 126.977976,
+		"landmarks": [ "Gyeongbokgung Palace" ],
+		"food": [ " Bibimbap" ]
 	},
 	{
-		name: "Berlin",
-		what3words: "wharfs.straws.proceeds"
-		lat: 52.520011,
-		long: 13.404942,
-		landmarks: [ "Brandenburg Gate" ],
-		food: [ "Apfelstrudel" ],
+		"name": "Amsterdam",
+		"what3words": "wardrobe.youthful.taped",
+		"lat": 52.366686,
+		"long": 4.894531,
+		"landmarks": [ "Rijksmuseum" ],
+		"food": [ "Poffertjes" ]
 	},
 	{
-		name: "Chicago",
-		what3words: "clap.spoil.item"
-		lat: 41.878113,
-		long: -87.629801,
-		landmarks: [ "Millennium Park" ],
-		food: [ "Deep Dish Pizza" ],
-
-
+		"name": "Berlin",
+		"what3words": "wharfs.straws.proceeds",
+		"lat": 52.520011,
+		"long": 13.404942,
+		"landmarks": [ "Brandenburg Gate" ],
+		"food": [ "Apfelstrudel" ]
 	},
 	{
-		name: "Bratislava",
-		what3words: "gearbox.notebook.stuffing"
-		lat: 48.148596,
-		long: 17.107763,
-		landmarks: [ "Devin Castle" ],
-		food: [ "Kapustnica" ],
-
-
+		"name": "Chicago",
+		"what3words": "clap.spoil.item",
+		"lat": 41.878113,
+		"long": -87.629801,
+		"landmarks": [ "Millennium Park" ],
+		"food": [ "Deep Dish Pizza" ]
 	},
 	{
-		name: "Zurich",
-		what3words: "trailer.sung.believer"
-		lat: 47.3769,
-		long: 8.541687,
-		landmarks: [ "Grossmunster" ],
-		food: [ "Zuger Kirschtorte" ],
-
-
+		"name": "Bratislava",
+		"what3words": "gearbox.notebook.stuffing",
+		"lat": 48.148596,
+		"long": 17.107763,
+		"landmarks": [ "Devin Castle" ],
+		"food": [ "Kapustnica" ]
 	},
 	{
-		name: "Montreal",
-		what3words: "issued.causes.shunted"
-		lat: 45.501684,
-		long: -73.567271,
-		landmarks: [ "Mount Royal" ],
-		food: [ "Kouign Amann" ],
-
-
+		"name": "Zurich",
+		"what3words": "trailer.sung.believer",
+		"lat": 47.3769,
+		"long": 8.541687,
+		"landmarks": [ "Grossmunster" ],
+		"food": [ "Zuger Kirschtorte" ]
 	},
 	{
-		name: "Quebec",
-		what3words: "deliberately.backside.risks"
-		lat: 46.813888,
-		long: -71.207999,
-		landmarks: [ "Montmorency Falls" ],
-		food: [ "Poutine" ],
-
+		"name": "Montreal",
+		"what3words": "issued.causes.shunted",
+		"lat": 45.501684,
+		"long": -73.567271,
+		"landmarks": [ "Mount Royal" ],
+		"food": [ "Kouign Amann" ]
 	},
 	{
-		name: "Buenos Aires",
-		what3words: "cobbles.waitress.pardon"
-		lat: -34.603695,
-		long: -58.381568,
-		landmarks: [ "Plaza de Mayo" ],
-		food: [ "Arroz Con Leche" ],
-
-
+		"name": "Quebec",
+		"what3words": "deliberately.backside.risks",
+		"lat": 46.813888,
+		"long": -71.207999,
+		"landmarks": [ "Montmorency Falls" ],
+		"food": [ "Poutine" ]
 	},
 	{
-		name: "Tokyo",
-		what3words: "cheek.villas.wasp"
-		lat: 35.680398,
-		long: 139.769007,
-		landmarks: [ "Meiji Jingu" ],
-		food: [ "Sushi" ],
-
+		"name": "Buenos Aires",
+		"what3words": "cobbles.waitress.pardon",
+		"lat": -34.603695,
+		"long": -58.381568,
+		"landmarks": [ "Plaza de Mayo" ],
+		"food": [ "Arroz Con Leche" ]
 	},
 	{
-		name: "Mombasa",
-		what3words: "gained.december.handrail"
-		lat: -4.043486,
-		long: 39.668193,
-		landmarks: [ "Diani Beach" ],
-		food: [ "Viazi Karanga" ],
-
-
+		"name": "Tokyo",
+		"what3words": "cheek.villas.wasp",
+		"lat": 35.680398,
+		"long": 139.769007,
+		"landmarks": [ "Meiji Jingu" ],
+		"food": [ "Sushi" ]
 	},
 	{
-		name: "Cairo",
-		what3words: "bucks.taxpayers.steams"
-		lat: 30.044429,
-		long: 31.235722,
-		landmarks: [ "Giza Necropolis" ],
-		food: [ "Falafel and Hummus" ],
-
-
+		"name": "Mombasa",
+		"what3words": "gained.december.handrail",
+		"lat": -4.043486,
+		"long": 39.668193,
+		"landmarks": [ "Diani Beach" ],
+		"food": [ "Viazi Karanga" ]
 	},
 	{
-		name: "Miami",
-		what3words: "tamed.chin.chatted"
-		lat: 25.761683,
-		long: -80.191795,
-		landmarks: [ "Vizcaya Museum and Gardens" ],
-		food: [ "Arepas" ],
-
+		"name": "Cairo",
+		"what3words": "bucks.taxpayers.steams",
+		"lat": 30.044429,
+		"long": 31.235722,
+		"landmarks": [ "Giza Necropolis" ],
+		"food": [ "Falafel and Hummus" ]
 	},
 	{
-		name: "Antarctica",
-		what3words: "operable.burner.breathes"
-		lat: -75.250984,
-		long: -0.071406,
-		landmarks: [ "Vinson Massif" ],
-		food: [ "Pemmican" ],
-
-
+		"name": "Miami",
+		"what3words": "tamed.chin.chatted",
+		"lat": 25.761683,
+		"long": -80.191795,
+		"landmarks": [ "Vizcaya Museum and Gardens" ],
+		"food": [ "Arepas" ]
 	},
 	{
-		name: "Las Vegas",
-		what3words: "opera.tunnel.chair"
-		lat: 36.169941,
-		long: -115.139819,
-		landmarks: [ "Hoover Dam" ],
-		food: [ "Consome Loco" ],
-
-
+		"name": "Antarctica",
+		"what3words": "operable.burner.breathes",
+		"lat": -75.250984,
+		"long": -0.071406,
+		"landmarks": [ "Vinson Massif" ],
+		"food": [ "Pemmican" ]
 	},
 	{
-		name: "Havana",
-		what3words: "stumpy.riders.drums"
-		lat: 23.113586,
-		long: -82.366599,
-		landmarks: [ "El Capitolio" ],
-		food: [ "Boniato Con Mojo" ],
-
+		"name": "Las Vegas",
+		"what3words": "opera.tunnel.chair",
+		"lat": 36.169941,
+		"long": -115.139819,
+		"landmarks": [ "Hoover Dam" ],
+		"food": [ "Consome Loco" ]
 	},
 	{
-		name: "Woodbridge",
-		what3words: "angle.gates.listed"
-		lat: 38.658164,
-		long: -77.249707,
-		landmarks: [ "Rippon Lodge Historic Site" ],
-		food: [ "Brunswick Stew" ],
-
-
+		"name": "Havana",
+		"what3words": "stumpy.riders.drums",
+		"lat": 23.113586,
+		"long": -82.366599,
+		"landmarks": [ "El Capitolio" ],
+		"food": [ "Boniato Con Mojo" ]
 	},
 	{
-		name: "Washington D.C.",
-		what3words: "bottle.figure.bronze"
-		lat: 38.907193,
-		long: -77.03687,
-		landmarks: [ "Lincoln Memorial" ],
-		food: [ "Half-Smoke" ],
-
+		"name": "Woodbridge",
+		"what3words": "angle.gates.listed",
+		"lat": 38.658164,
+		"long": -77.249707,
+		"landmarks": [ "Rippon Lodge Historic Site" ],
+		"food": [ "Brunswick Stew" ]
 	},
 	{
-		name: "Edinburgh",
-		what3words: "slide.wire.shave"
-		lat: 55.953253,
-		long: -3.188271,
-		landmarks: [ "Arthur's Seat" ],
-		food: [ "Arbroath Smokies" ],
-
-
+		"name": "Washington D.C.",
+		"what3words": "bottle.figure.bronze",
+		"lat": 38.907193,
+		"long": -77.03687,
+		"landmarks": [ "Lincoln Memorial" ],
+		"food": [ "Half-Smoke" ]
 	},
 	{
-		name: "Manchester",
-		what3words: "tight.tins.metro"
-		lat: 53.48077,
-		long: -2.24264,
-		landmarks: [ "Old Trafford" ],
-		food: [ "Eccles Cake" ],
-
+		"name": "Edinburgh",
+		"what3words": "slide.wire.shave",
+		"lat": 55.953253,
+		"long": -3.188271,
+		"landmarks": [ "Arthur's Seat" ],
+		"food": [ "Arbroath Smokies" ]
 	},
 	{
-		name: "Villach",
-		what3words: "diamond.start.altering"
-		lat: 46.608573,
-		long: 13.850616,
-		landmarks: [ "Lake Faak" ],
-		food: [ "Kasnudeln" ],
-
+		"name": "Manchester",
+		"what3words": "tight.tins.metro",
+		"lat": 53.48077,
+		"long": -2.24264,
+		"landmarks": [ "Old Trafford" ],
+		"food": [ "Eccles Cake" ]
+	},
+	{
+		"name": "Villach",
+		"what3words": "diamond.start.altering",
+		"lat": 46.608573,
+		"long": 13.850616,
+		"landmarks": [ "Lake Faak" ],
+		"food": [ "Kasnudeln" ]
+	},
+	{
+		"name": "King's Lynn",
+        "what3words": "cope.vivid.poker",
+        "lat": 52.751684,
+        "long": 0.402295,
+        "landmarks": [ "Witch's Heart" ],
+        "food": [ "Fish And Chips" ]
 	}
 ]
