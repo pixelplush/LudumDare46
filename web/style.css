@@ -46,3 +46,48 @@ main {
 	max-width: 75vw;
 	max-height: 75vh;
 }
+
+
+/* Patrik's CSS */
+.container {
+	position: fixed;
+	top: 26px;
+	left: 30px;
+	width: 703px;
+	height: 815px;
+	transform: scale(0.6);
+	transform-origin: top left;
+}
+.scene {
+	position: absolute;
+	top: 0; left: 0;
+	width: 960px;
+
+	transition: opacity 1s;
+}
+.scene div {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+}
+.scene .girl div img {
+	transition: margin-left 0.6s;
+}
+.scene .girl .tablet img { width: auto; }
+.scene .background img,
+.scene .tablet img {
+	width: 100%;
+}
+.scene .tablet {
+	display: block !important; /* TODO REMOVE */
+}
+.scene .girl img {
+	position: absolute;
+	height: 540px;
+	left: 50%;
+	margin-left: -32%;
+}
+.scene .girl.right div img { margin-left: -5%; }
+.scene .girl .brows img {
+
+}
