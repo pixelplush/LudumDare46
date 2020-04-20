@@ -1,61 +1,92 @@
-    const suspectClueSentences = [
-        "I didn't know this SPECIES could be described as CHARACTERISTIC",
-        "People were calling this SPECIES the NICKNAME",
-        "I heard they're AGE years old!",
-        "The SPECIES was GENDER",
-    ];
-    const peculiarSuspects = [
-        {
-            name: "Captain of Catastrophe",
-            characteristics: [ "Pointy Ears", "Purrrfect Whiskers" ],
-            nicknames: [ "Catastrophe", "C-A-T", "Captain" ],
-            gender: "male",
-            species: "cat",
-            sound: [ "meow", "a-mews-ed" ],
-            age: "?"
-        },
-        {
-            name: "Sergeant Mayo",
-            characteristics: [ "Uniform", "Angry", "Cop", "Sarcastic" ],
-            nicknames: [ "Sergeant", "sarge" ],
-            gender: "male",
-            species: "condiment",
-            sound: [ "angry", "yelling" ],
-            age: 54
-        },
-        {
-            name: "Dr. D Dawson",
-            characteristics: [ "Meticulous", "Proper", "Clean", "Calculating", "Smart" ],
-            nicknames: [ "Doctor", "doc", "daws", "Deedeedee" ],
-            gender: "female",
-            species: "human",
-            sound: [ "calm", "alluring" ],
-            age: 26
-        },
-        {
-            name: "Jay Son",
-            characteristics: [ "Organized", "Clean-Shaven", "Hacker", "Computer-Geek", "Techie" ],
-            nicknames: [ "json", "jayjay" ],
-            gender: "male",
-            species: "artificial intelligence",
-            sound: [ "mumbling" ],
-            age: 2
-        },
-        {
-            name: "Melia Azedarach",
-            characteristics: [ "Smells Good", "Femme Fatale", "Stoic", "Doesn't Speak" ],
-            nicknames: [ "Killer Flower", "poison", "danger" ],
-            gender: "female",
-            species: "tree",
-            sound: [ "quiet" ],
-            age: 267
-        }
-    ];
+var clueSentences = [];
+var peculiarSuspects = [];
+var peculiarWeapons = [];
 
-function SetupGame( code = "" ) {
+async function SetupGame( code = "" ) {
     prandom = new alea( code );
 
+    peculiarSuspects = await fetch( "web/data/suspects.json" ).then( r => r.json() );
+    peculiarWeapons = await fetch( "web/data/weapons.json" ).then( r => r.json() );
+    clueSentences = await fetch( "web/data/clues.json" ).then( r => r.json() );
+
+    // Populate Suspects List
+    peculiarSuspects.forEach( ( s, index ) => {
+        let contain = document.createElement( "div" );
+        contain.setAttribute( "id", `suspect-${index}` );
+        contain.setAttribute( "class", "nes-container is-rounded is-dark" );
+        let elem = document.createElement( "p" );
+        elem.innerText = s.name;
+        contain.append( elem );
+
+        let list = document.createElement( "ul" );
+        list.setAttribute( "class", "nes-list is-circle" );
+
+        let basic = document.createElement( "li" );
+        basic.innerText = `Gender: ${s.gender}`;
+        list.append( basic );
+
+        let age = document.createElement( "li" );
+        age.innerText = `Age: ${s.age}`;
+        list.append( age );
+
+        let species = document.createElement( "li" );
+        species.innerText = `Species: ${s.species}`;
+        list.append( species );
+
+        let characteristics = document.createElement( "li" );
+        characteristics.innerText = `Traits: ${s.characteristics.join( ", " ) || "Unknown"}`;
+        list.append( characteristics );
+
+        let nicknames = document.createElement( "li" );
+        nicknames.innerText = `Nicknames: ${s.nicknames.join( ", " ) || "None"}`;
+        list.append( nicknames );
+
+        let personality = document.createElement( "li" );
+        personality.innerText = `Personality: ${s.sound.join( ", " ) || "None"}`;
+        list.append( personality );
+
+        contain.append( list );
+        document.querySelector( "#content-suspects" ).append( contain );
+    });
+
+    // Populate Weapons List
+    peculiarWeapons.forEach( ( w, index ) => {
+        let contain = document.createElement( "div" );
+        contain.setAttribute( "id", `weapon-${index}` );
+        contain.setAttribute( "class", "nes-container is-rounded is-dark" );
+        let elem = document.createElement( "p" );
+        elem.innerText = w.name;
+        contain.append( elem );
+        let list = document.createElement( "ul" );
+        list.setAttribute( "class", "nes-list is-disc" );
+
+        let type = document.createElement( "li" );
+        type.innerText = `Type: ${w.type}`;
+        list.append( type );
+
+        let effect = document.createElement( "li" );
+        effect.innerText = `Effect: ${w.effect}`;
+        list.append( effect );
+
+        let sharpness = document.createElement( "li" );
+        sharpness.innerText = `Sharpness: ${w.sharpness}`;
+        list.append( sharpness );
+
+        let color = document.createElement( "li" );
+        color.innerText = `Color: ${w.color}`;
+        list.append( color );
+
+        let size = document.createElement( "li" );
+        size.innerText = `Size: ${w.size}`;
+        list.append( size );
+
+        contain.append( list );
+        document.querySelector( "#content-weapons" ).append( contain );
+    });
+
     clues = generateSuspectClues( getRandomElement( peculiarSuspects ) );
+    // Only keep unique clues
+    clues = clues.filter( ( c, index ) => clues.indexOf( c ) === index );
     // console.log( clues );
     const ciphers = [
         ComfyCipher.Encode.Reverse,
@@ -141,7 +172,7 @@ function decode( decoderId ) {
 function generateSuspectClues( suspect, number = 10 ) {
     let sus = [];
     for( var i = 0; i < number; i++ ) {
-        let clue = getRandomElement( suspectClueSentences );
+        let clue = getRandomElement( clueSentences );
         sus.push( replaceSuspectClue( suspect, clue ) );
     }
     return sus;

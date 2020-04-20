@@ -6,8 +6,8 @@
 		<link href="https://cdn.jsdelivr.net/gh/nostalgic-css/NES.css@2.3.0/docs/lib/dialog-polyfill.css" rel="stylesheet" crossorigin="anonymous"/>
 		<script src="https://cdn.jsdelivr.net/gh/nostalgic-css/NES.css@2.3.0/docs/lib/dialog-polyfill.js" crossorigin="anonymous"></script>
 		<!-- latest -->
-		<link href="https://unpkg.com/nes.css@2.3.0/css/nes-core.min.css" rel="stylesheet">
-		<link href="https://unpkg.com/nes.icons@2.0.1/css/nes-icons.min.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/nes.css@2.3.0/css/nes-core.min.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/nes.icons@2.0.1/css/nes-icons.min.css" rel="stylesheet">
 		<link href="web/style.css" rel="stylesheet">
 		<script src="https://cdn.jsdelivr.net/npm/comfycipher@latest/web/comfycipher.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/lib/alea.min.js"></script>
@@ -87,8 +87,6 @@
 						<div id="clues" class="word-wrap">
 						</div>
 					</div>
-					<div id="content-decode">
-					</div>
 					<div id="content-suspects"></div>
 					<div id="content-weapons"></div>
 				</section>
@@ -152,7 +150,6 @@
 				var randomCode = Math.random().toString(36).substr(2, 5).toUpperCase().trim();
 				document.getElementById( "code_field" ).value = randomCode;
 				document.getElementById( "code_field" ).oninput = function( ev ) {
-					console.log( "changed" );
 					randomCode = document.getElementById( "code_field" ).value;
 					console.log( randomCode );
 					SetupGame( randomCode );
