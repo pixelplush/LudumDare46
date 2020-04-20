@@ -11,6 +11,13 @@ main {
     overflow-y: scroll;
 }
 
+.top-right {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	/* background-color: rgba(0, 0, 0, 0.5); */
+}
+
 .nes-container + .nes-container {
   margin-top: 20px;
 }

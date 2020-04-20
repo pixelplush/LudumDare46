@@ -92,9 +92,17 @@
 							<button id="tab-weapons" type="button" class="nes-btn is-error"><i class="nes-icon bomb"></i> Weapons</button>
 						</p>
 						<div id="content-main">
-							<div class="nes-field">
-							  <label for="code_field">Puzzle Code</label>
-							  <input type="text" id="code_field" class="nes-input">
+							<br/>
+							<br/>
+							<div class="nes-field is-inline">
+							  <label for="answer_field">Answer:</label>
+							  <input type="text" id="answer_field" class="nes-input">
+							  <button type="button" id="answer_submit" class="nes-btn is-success">Submit</button>
+							</div>
+							<br/>
+							<div class="nes-container with-title is-dark is-centered">
+							  <p class="title">Suspect Submission Format</p>
+							  <p>[SUSPECT] with a [WEAPON] at [CITY] in [YEAR]</p>
 							</div>
 						</div>
 						<div id="content-memos">
@@ -103,6 +111,10 @@
 						</div>
 						<div id="content-suspects"></div>
 						<div id="content-weapons"></div>
+						<div class="nes-field top-right" style="width: 15%;">
+						  <label for="code_field">Puzzle</label>
+						  <input type="text" id="code_field" class="nes-input is-success">
+						</div>
 					</section>
 				</main>
 			</div> <!-- .container -->
@@ -149,8 +161,25 @@
 			// });
 
 			document.querySelector( "#decode-save" ).addEventListener( "click", function( ev ) {
-			    document.querySelector( `#clue-${clueIndex}` ).innerText = document.querySelector( "#decode-text" ).value;
+			    document.querySelector( `#clue-${clueIndex}-text` ).innerText = document.querySelector( "#decode-text" ).value;
+				document.querySelector( `#clue-${clueIndex}-text` ).setAttribute( "class", "nes-text is-primary" );
 			    document.querySelector( ".modal-container" ).setAttribute( "hidden", "true" );
+			});
+
+			document.getElementById( "answer_field" ).addEventListener( "keyup", function(event) {
+				event.preventDefault();
+				if( event.keyCode === 13 ) {
+			    	document.getElementById( "answer_submit" ).click();
+				}
+			});
+
+			document.getElementById( "answer_submit" ).addEventListener( "click", function( event ) {
+				let answer = document.getElementById( "answer_field" ).value;
+				console.log( answer );
+				let win = checkAnswer( answer );
+				if( win ) {
+					console.log( "GG!" );
+				}
 			});
 
 			window.onload = function( ev ) {

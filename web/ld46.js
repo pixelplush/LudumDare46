@@ -1,6 +1,10 @@
 var clueSentences = [];
 var peculiarSuspects = [];
 var peculiarWeapons = [];
+var suspect;
+var weapon;
+var location;
+var date;
 
 async function SetupGame( code = "" ) {
     prandom = new alea( code );
@@ -86,8 +90,10 @@ async function SetupGame( code = "" ) {
         document.querySelector( "#content-weapons" ).append( contain );
     });
 
-    let suspect = getRandomElement( peculiarSuspects );
-    let weapon = getRandomElement( peculiarWeapons );
+    suspect = getRandomElement( peculiarSuspects );
+    weapon = getRandomElement( peculiarWeapons );
+	// location;
+	// date;
 
     clues = generateClues( suspect, weapon );
     // Only keep unique clues
@@ -133,6 +139,7 @@ async function SetupGame( code = "" ) {
         contain.append( title );
 
         let elem = document.createElement( "p" );
+		elem.setAttribute( "id", `clue-${index}-text` );
         elem.setAttribute( "class", "nes-text is-success" );
         elem.innerText = clue;
         contain.append( elem );
@@ -229,6 +236,13 @@ function generateClues( suspect, weapon, number = 20 ) {
         sus.push( replaceClue( suspect, weapon, clue ) );
     }
     return sus;
+}
+
+function checkAnswer( text ) {
+	let answer = `${suspect.name} with a ${weapon.name} at [CITY] in [YEAR]`;
+	return text.toLowerCase().trim() === answer.toLowerCase();
+	// location;
+	// date;
 }
 
 function replaceClue( suspect, weapon, sentence ) {
