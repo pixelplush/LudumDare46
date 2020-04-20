@@ -38,10 +38,46 @@
 	{
 		"name": "Melia Azedarach",
 		"characteristics": [ "smells good", "Femme fatale", "stoic", "Doesn't speak" ],
-		"nicknames": [ "Killer Flower", "poison", "danger" ],
+		"nicknames": [ "Killer Flower", "poison", "Chinaberry" ],
 		"gender": "female",
-		"species": "tree",
+		"species": "human",
 		"sound": [],
 		"age": 267
+	},
+	{
+		"name": "Sir Nubs",
+		"characteristics": [ "beard", "bow-tie" ],
+		"nicknames": [ "Pyro" ],
+		"gender": "male",
+		"species": "lizard",
+		"sound": [],
+		"age": 52
+	},
+	{
+		"name": "Slither Scopes",
+		"characteristics": [ "fangs", "monocle" ],
+		"nicknames": [ "hsss", "staring contest champion" ],
+		"gender": "female",
+		"species": "snake",
+		"sound": [],
+		"age": 76
+	},
+	{
+		"name": "Queen Fire Ant",
+		"characteristics": [ "crown" ],
+		"nicknames": [ "Pyro" ],
+		"gender": "female",
+		"species": "ant",
+		"sound": [],
+		"age": 20
+	},
+	{
+		"name": "Sinister Seal",
+		"characteristics": [ "eye patch" ],
+		"nicknames": [ "Big C" ],
+		"gender": "male",
+		"species": "seal",
+		"sound": [],
+		"age": 2
 	}
 ]

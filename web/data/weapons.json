@@ -21,22 +21,46 @@
 		"sharpness": 2,
 		"color": "brown",
 		"size": "small",
-		"type": "wristwatch"
+		"type": "tool"
 	},
 	{
-		"name": "Over-cooked Chicken",
+		"name": "Hypnotic Glasses",
 		"effect": "dry taste-buds",
 		"sharpness": 0,
-		"color": "dark brown",
-		"size": "medium",
-		"type": "food"
+		"color": "purple",
+		"size": "small",
+		"type": "accessory"
 	},
 	{
-		"name": "Hydration Tank",
+		"name": "Water Balloon Cannon",
 		"effect": "drown",
 		"sharpness": 4,
 		"color": "silver",
 		"size": "large",
-		"type": "vehicle"
+		"type": "gun"
+	},
+	{
+		"name": "3D Printer Printer",
+		"effect": "ink",
+		"sharpness": 5,
+		"color": "gray",
+		"size": "medium",
+		"type": "tool"
+	},
+	{
+		"name": "Balloon Pit Maker",
+		"effect": "drown",
+		"sharpness": 3,
+		"color": "red",
+		"size": "large",
+		"type": "tool"
+	},
+	{
+		"name": "Noise Increasing Headphones",
+		"effect": "deafen",
+		"sharpness": 1,
+		"color": "black",
+		"size": "small",
+		"type": "accessory"
 	}
 ]
