@@ -35,7 +35,7 @@ let music = new Howl( {
 	src: [ "web/assets/music/LD46_BG.mp3" ],
     loop: true,
 });
-music.volume( 0.5 ); // Set music volume to be 0.5
+music.volume( 0.2 ); // Set music volume to be 0.5
 
 var clueSentences = [];
 var peculiarSuspects = [];
@@ -304,7 +304,6 @@ function generateClues( suspect, weapon, loc, date, number = 100 ) {
 
 function checkAnswer( text ) {
 	let answer = `${suspect.name} with a ${weapon.name} at ${answerLocation.name} in ${answerDate}`;
-	// console.log( answer );
 	return text.toLowerCase().trim() === answer.toLowerCase();
 }
 
