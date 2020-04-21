@@ -105,12 +105,13 @@ function updateCutscene() {
 		}, 4000);
 		break;
 	case 4:
+		document.querySelector("#skip-intro-btn").style.display = "none";
 		document.querySelector( ".scene .girl .eyes img" ).style.opacity = "0";
 		scenes.setBrows(false);
 		scenes.setBodyType(0);
-		scenes.setMouthFrame( 0 );
 		scenes.setBodyRight(true);
 		scenes.showTablet();
+		scenes.setMouthFrame( 0 );
 		break;
 	case 5:
 		for (var i = voice_audios.length - 1; i >= 0; i--) {
@@ -124,6 +125,7 @@ function updateCutscene() {
 		scenes.showTablet();
 		break;
 	case 10: // End Cutscene!
+		scenes.isSmile = 0;
 		skipped = false;
 		scenes.hideTablet();
 		scenes.setBodyRight(false);
@@ -141,12 +143,16 @@ function updateCutscene() {
 		playVoice(7);
 		speechBubble( "Thank you so much.", 500, 1400, () => {
 		});
-		animateMouth(3, function(){
-			setCutscene(12);
+		animateMouth(1.5, function(){
+			scenes.isSmile = 1;
+			animateMouth(1, function(){
+				setCutscene(12);
+			});
 		});
 		break;
 	case 12:
 		playVoice(8);
+		scenes.isSmile = 0;
 		speechBubble( "We are all in your debt.", 500, 1700, () => {
 		});
 		scenes.setBodyType(0);

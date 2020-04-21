@@ -80,16 +80,21 @@ var loaded_count = 0,
         // mouth pose5
         "pose/pose5/pose5_mouth1", // 58
         "pose/pose5/pose5_mouth2",
+        "pose/pose5/pose5_mouth3",
+        "pose/pose5/pose5_mouth4",
 
         // tablet for pose3
-        "pose/pose3/pose3_tablet1", // 60
+        "pose/pose3/pose3_tablet1", // 62
         "pose/pose3/pose3_tablet2",
         "pose/pose3/pose3_tablet3",
         "pose/pose3/pose3_tablet4",
         "pose/pose3/pose3_tablet5",
         "pose/pose3/pose3_tablet6",
         "pose/pose3/pose3_tablet7",
-        "pose/pose3/pose3_tablet8"
+        "pose/pose3/pose3_tablet8",
+
+        "pose/pose5/pose5_smile2", // 70
+        "pose/pose5/pose5_smile1"
     ];
 
 function appendAll() {
@@ -116,6 +121,7 @@ function appendAll() {
         images[i].style.opacity = i == 39 ? "1" : "0";
         images[i].dataset.pose = 0;
         images[i].dataset.state = i-39;
+        images[i].dataset.smile = "0";
         document.querySelector(".scene .girl .mouth").appendChild( images[i] );
     }
     for (var i = 0; i <= 3; i++) {
@@ -123,21 +129,28 @@ function appendAll() {
             images[43 +(i*5)+j].style.opacity = "0";
             images[43 +(i*5)+j].dataset.pose = i+1;
             images[43 +(i*5)+j].dataset.state = j;
+            images[43 +(i*5)+j].dataset.smile = "0";
             document.querySelector(".scene .girl .mouth").appendChild( images[43 +(i*5)+j] );
         }
     }
-    images[58].style.opacity = "0";
-    images[59].style.opacity = "0";
-    images[58].dataset.pose = 4;
-    images[59].dataset.pose = 4;
-    images[58].dataset.state = 0;
-    images[59].dataset.state = 1;
-    document.querySelector(".scene .girl .mouth").appendChild( images[58] );
-    document.querySelector(".scene .girl .mouth").appendChild( images[59] );
-
-    for (var i = 60; i <= 67; i++) {
+    for (var i = 58; i <= 62; i++) {
         images[i].style.opacity = "0";
-        images[i].dataset.state = i-60;
+        images[i].dataset.pose = 4;
+        images[i].dataset.state = i-58;
+        images[i].dataset.smile = "0";
+        document.querySelector(".scene .girl .mouth").appendChild( images[i] );
+    }
+    for (var i = 70; i <= 71; i++) {
+        images[i].style.opacity = "0";
+        images[i].dataset.pose = 4;
+        images[i].dataset.state = i-70;
+        images[i].dataset.smile = "1";
+        document.querySelector(".scene .girl .mouth").appendChild( images[i] );
+    }
+
+    for (var i = 62; i <= 69; i++) {
+        images[i].style.opacity = "0";
+        images[i].dataset.state = i-62;
         document.querySelector(".scene .girl .tablet").appendChild( images[i] );
     }
 
@@ -169,9 +182,10 @@ function preloadImages( img_urls ) {
 var scenes = {
     blinkState: 0, // 0 - 5
     bodyType: 0,
-    mouthFrames: [4, 5, 5, 5, 2],
+    mouthFrames: [4, 5, 5, 5, 4],
     mouthFrame: 0,
     tabletFrame: 0,
+    isSmile: false,
 
     // 0 - 4
     setBodyType: function (id) {
@@ -228,7 +242,8 @@ var scenes = {
         scenes.mouthFrame = state;
         var mouthImages = document.querySelectorAll(".scene .girl .mouth img");
         for (var i = 0; i < mouthImages.length; i++) {
-            if ( scenes.bodyType == mouthImages[i].dataset.pose && scenes.mouthFrame == mouthImages[i].dataset.state) {
+            if ( scenes.bodyType == mouthImages[i].dataset.pose && scenes.mouthFrame == mouthImages[i].dataset.state 
+                    && mouthImages[i].dataset.smile == scenes.isSmile ) {
                 mouthImages[i].style.opacity = "1";
             } else {
                 mouthImages[i].style.opacity = "0";
@@ -238,8 +253,13 @@ var scenes = {
 
     nextMouthFrame: function() {
         // let's cycle through the frames
-        scenes.mouthFrame = (scenes.mouthFrame + 1) % scenes.mouthFrames[scenes.bodyType];
-        scenes.setMouthFrame(scenes.mouthFrame);
+        if (scenes.isSmile) {
+            scenes.mouthFrame = (scenes.mouthFrame + 1) % 1;
+            scenes.setMouthFrame(scenes.mouthFrame);
+        } else {
+            scenes.mouthFrame = (scenes.mouthFrame + 1) % scenes.mouthFrames[scenes.bodyType];
+            scenes.setMouthFrame(scenes.mouthFrame);
+        }
     },
 
     showTablet: function() {
