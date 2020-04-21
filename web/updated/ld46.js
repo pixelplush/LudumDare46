@@ -33,8 +33,9 @@ Object.keys( soundDB ).map( s => {
 Howler.volume( 0 ); // Default to muted
 let music = new Howl( {
 	src: [ "web/assets/music/LD46_BG.mp3" ],
-	loop: true,
+    loop: true,
 });
+music.volume( 0.5 ); // Set music volume to be 0.5
 music.play();
 
 var clueSentences = [];
@@ -179,8 +180,8 @@ async function SetupGame( code = "" ) {
             return ComfyCipher.Encode.Morse( ComfyCipher.Encode.Hexadecimal( ComfyCipher.Encode.Base64( text ) ) );
         },
     ];
-    console.log( ComfyCipher );
-    console.log( clues.map( c => getRandomElement( ciphers )( c ) ) );
+    // console.log( ComfyCipher );
+    // console.log( clues.map( c => getRandomElement( ciphers )( c ) ) );
     document.querySelector( "#clues" ).innerHTML = "";
     clues.forEach( ( c, index ) => {
         let clue = getRandomElement( ciphers )( c );
