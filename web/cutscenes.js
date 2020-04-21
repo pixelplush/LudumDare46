@@ -169,6 +169,7 @@ function animateTablet( length, fin ) {
 }
 
 function skip() {
+	document.querySelector("#skip-intro-btn").style.display = "none";
 	setCutscene(5);
 }
 

@@ -230,3 +230,9 @@ main {
 .game-container.tablethide .container {
 	margin-left: -700px;
 }
+
+#skip-intro-btn {
+	position: absolute;
+	right: 20px;
+	top: 5px;
+}
