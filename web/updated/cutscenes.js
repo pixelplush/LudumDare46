@@ -128,6 +128,10 @@ function updateCutscene() {
 		scenes.hideTablet();
 		scenes.setBodyRight(false);
 		playVoice(6);
+		speechBubble( "You did it!", 1100, 700, () => {
+			speechBubble( "This time link can now be fixed!", 400, 1700, () => {
+			});
+		});
 		scenes.setBodyType(4);
 		animateMouth(5, function(){
 			setCutscene( 11 );
@@ -135,12 +139,16 @@ function updateCutscene() {
 		break;
 	case 11:
 		playVoice(7);
+		speechBubble( "Thank you so much.", 500, 1400, () => {
+		});
 		animateMouth(3, function(){
 			setCutscene(12);
 		});
 		break;
 	case 12:
 		playVoice(8);
+		speechBubble( "We are all in your debt.", 500, 1700, () => {
+		});
 		scenes.setBodyType(0);
 		animateMouth(2, function(){
 			setCutscene( 13 );
@@ -148,6 +156,10 @@ function updateCutscene() {
 		break;
 	case 13:
 		playVoice(9);
+		speechBubble( "Hopefully we won't need your help again.", 450, 2000, () => {
+			speechBubble( "But if we do, we know where to find you.", 400, 2500, () => {
+			});
+		});
 		scenes.setBodyType(1);
 		animateMouth(6, function(){
 			setCutscene(14);
@@ -155,6 +167,8 @@ function updateCutscene() {
 		break;
 	case 14:
 		playVoice(10);
+		speechBubble( "Til next time.", 500, 1100, () => {
+		});
 		scenes.setBodyType(0);
 		animateMouth(2, function() {
 			scenes.setMouthFrame( 0 );
