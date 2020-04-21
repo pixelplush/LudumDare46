@@ -1,5 +1,6 @@
 var cutscene = 0,
 	loaded_voices = 0,
+	skipped = false,
 	voices = [
 		"LD46-1-OhHereYouAre",
 		"LD46-2-ListenToMe",
@@ -72,6 +73,17 @@ function updateCutscene() {
 		scenes.setBodyRight(true);
 		scenes.showTablet();
 		break;
+	case 5:
+		for (var i = voice_audios.length - 1; i >= 0; i--) {
+			voice_audios[i].pause();
+		}
+		skipped = true;
+		document.querySelector( ".scene .girl .eyes img" ).style.opacity = "0";
+		scenes.setBrows(false);
+		scenes.setBodyType(0);
+		scenes.setBodyRight(true);
+		scenes.showTablet();
+		break;
 	case 10: // End Cutscene!
 		playVoice(6);
 		animateMouth(5, function(){
@@ -124,28 +136,40 @@ function playVoice( id ) {
 }
 
 function animateMouth( length, fin ) {
-	var startTime = new Date(),
-		delayFrame = function() {
-			if ((new Date())-startTime < length*1000 ) {
-				scenes.nextMouthFrame();
-				setTimeout(delayFrame, Math.floor(Math.random()* (400-10+1))+10 );
-			} else {
-				fin();
-			}
-		};
-		setTimeout(delayFrame, Math.floor(Math.random()* (400-10+1))+10 );
+	if (!skipped) {
+		var startTime = new Date(),
+			delayFrame = function() {
+				if (!skipped) {
+					if ((new Date())-startTime < length*1000 ) {
+						scenes.nextMouthFrame();
+						setTimeout(delayFrame, Math.floor(Math.random()* (400-10+1))+10 );
+					} else if (!skipped) {
+						fin();
+					}
+				}
+			};
+			setTimeout(delayFrame, Math.floor(Math.random()* (400-10+1))+10 );
+	}
 }
 function animateTablet( length, fin ) {
-	var startTime = new Date(),
-		delayFrame = function() {
-			if ((new Date())-startTime < length*1000 ) {
-				scenes.nextTabletFrame();
-				setTimeout(delayFrame, 125 );
-			} else {
-				fin();
-			}
-		};
-		setTimeout(delayFrame, 125 );
+	if (!skipped) {
+		var startTime = new Date(),
+			delayFrame = function() {
+				if (!skipped) {
+					if ((new Date())-startTime < length*1000 ) {
+						scenes.nextTabletFrame();
+						setTimeout(delayFrame, 125 );
+					} else {
+						fin();
+					}
+				}
+			};
+			setTimeout(delayFrame, 125 );
+	}
+}
+
+function skip() {
+	setCutscene(5);
 }
 
 setTimeout( () => {
