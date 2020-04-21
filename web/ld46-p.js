@@ -211,7 +211,7 @@ var scenes = {
         for (var i = 0; i < browImages.length; i++) {
             if ( !browsOn ) {
                 browImages[i].style.opacity = "0";
-            } else if ( scenes.bodyType == i-1 ) {
+            } else if ( scenes.bodyType == i ) {
                 browImages[i].style.opacity = "1";
             } else {
                 browImages[i].style.opacity = "0";
