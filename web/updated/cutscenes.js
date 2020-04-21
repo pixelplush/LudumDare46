@@ -123,6 +123,30 @@ function updateCutscene() {
 			document.getElementById( "end-game-scene" ).removeAttribute( "hidden" );
 		});
 		break;
+	case 20: // Try again
+		skipped = false;
+		for (var i = voice_audios.length - 1; i >= 0; i--) {
+			voice_audios[i].pause();
+		}
+		playVoice(4);
+		scenes.setBodyType(1);
+		animateMouth(4, function(){
+			scenes.setBodyType(0);
+		});
+		break;
+	case 21: // Are you sure?
+		skipped = false;
+		for (var i = voice_audios.length - 1; i >= 0; i--) {
+			voice_audios[i].pause();
+		}
+		playVoice(5);
+		scenes.setBodyType(1);
+		scenes.setBrows(true);
+		animateMouth(4, function(){
+			scenes.setBrows(false);
+			scenes.setBodyType(0);
+		});
+		break;
 	}
 }
 function setCutscene( number ) {
