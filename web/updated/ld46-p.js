@@ -285,6 +285,7 @@ function winScene() {
 
                 // THIS IS FOR INSTA
                 // ending commands
+                setCutscene( 10 );
             }
             interval_cycle++;
         },400);

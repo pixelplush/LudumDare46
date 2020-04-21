@@ -70,6 +70,7 @@ function updateCutscene() {
 		document.querySelector( ".scene .girl .eyes img" ).style.opacity = "0";
 		scenes.setBrows(false);
 		scenes.setBodyType(0);
+		scenes.setMouthFrame( 0 );
 		scenes.setBodyRight(true);
 		scenes.showTablet();
 		break;
@@ -85,17 +86,41 @@ function updateCutscene() {
 		scenes.showTablet();
 		break;
 	case 10: // End Cutscene!
+		skipped = false;
+		scenes.hideTablet();
+		scenes.setBodyRight(false);
 		playVoice(6);
+		scenes.setBodyType(4);
 		animateMouth(5, function(){
-			scenes.setBrows(true);
-			setCutscene(11);
+			setCutscene( 11 );
 		});
 		break;
-	case 11: // End Cutscene!
+	case 11:
 		playVoice(7);
 		animateMouth(3, function(){
-			scenes.setBrows(true);
 			setCutscene(12);
+		});
+		break;
+	case 12:
+		playVoice(8);
+		scenes.setBodyType(0);
+		animateMouth(2, function(){
+			setCutscene( 13 );
+		});
+		break;
+	case 13:
+		playVoice(9);
+		scenes.setBodyType(1);
+		animateMouth(6, function(){
+			setCutscene(14);
+		});
+		break;
+	case 14:
+		playVoice(10);
+		scenes.setBodyType(0);
+		animateMouth(2, function() {
+			scenes.setMouthFrame( 0 );
+			document.getElementById( "end-game-scene" ).removeAttribute( "hidden" );
 		});
 		break;
 	}
