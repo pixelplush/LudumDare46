@@ -1,0 +1,238 @@
+html, body {
+    background-color: #212529
+}
+
+main {
+  padding: 20px;
+}
+
+.main-content {
+    height: 1080px;
+    overflow-y: scroll;
+}
+
+.front {
+	z-index: 1000;
+}
+
+.top-left {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	/* background-color: rgba(0, 0, 0, 0.5); */
+}
+
+.top-right {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	/* background-color: rgba(0, 0, 0, 0.5); */
+}
+
+.start-game-container {
+	position: absolute;
+	margin: auto;
+	width: 100%;
+	text-align: center;
+}
+
+.nes-container + .nes-container {
+  margin-top: 20px;
+}
+
+.word-wrap {
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.any-wrap {
+	overflow-wrap: anywhere;
+}
+
+.short-height {
+	height: 16px;
+}
+
+.modal-container {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 999;
+}
+
+.modal {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
+	width: 75%;
+	background-color: #212529;
+
+	max-width: 75vw;
+	max-height: 75vh;
+}
+
+
+/* Patrik's CSS */
+.container {
+    padding: 20px;
+	position: absolute;
+	top: 26px;
+	left: 30px;
+	/* width: 703px; */
+    width: 973px;
+	/* height: 815px; */
+    height: 1115px;
+    /* max-height: 1115px; */
+	transform: scale(0.6);
+	transform-origin: top left;
+}
+.scene {
+	position: absolute;
+	top: 0; left: 0;
+	/* width: 960px; */
+    width: 1280px;
+
+	transition: opacity 1s;
+}
+.scene div {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+}
+.scene .girl div img {
+	transition: margin-left 0.6s;
+}
+.scene .girl .tablet img { width: auto; }
+.scene .background img,
+.scene .tablet img {
+	width: 100%;
+}
+.scene .tablet {
+	display: block !important; /* TODO REMOVE */
+}
+.scene .girl img {
+	position: absolute;
+	/* height: 540px; */
+    height: 720px;
+	left: 50%;
+	margin-left: -32%;
+}
+.scene .girl.right div img { margin-left: -5%; }
+.scene > .tablet {
+	animation-iteration-count: 2;
+}
+.scene > .tablet.wrong { animation: shake 0.5s; }
+.game-container > .container.wrong { animation: shake2 0.5s; }
+
+
+#content-suspects {
+	overflow: hidden auto;
+}
+#content-suspects .nes-container {
+	float: left;
+	width: 100%;
+}
+#content-suspects ul {
+	margin-left: 141px;
+}
+#content-suspects .mugshot {
+	float: left;
+	width: 162px;
+	height: 190px;
+	display: block;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	border: 6px solid;
+	border-image-slice: 3;
+	border-image-width: 3;
+	border-image-repeat: stretch;
+	border-image-source: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8" ?><svg version="1.1" width="8" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M3 1 h1 v1 h-1 z M4 1 h1 v1 h-1 z M2 2 h1 v1 h-1 z M5 2 h1 v1 h-1 z M1 3 h1 v1 h-1 z M6 3 h1 v1 h-1 z M1 4 h1 v1 h-1 z M6 4 h1 v1 h-1 z M2 5 h1 v1 h-1 z M5 5 h1 v1 h-1 z M3 6 h1 v1 h-1 z M4 6 h1 v1 h-1 z" fill="rgb(255,255,255)" /></svg>');
+	border-image-outset: 0;
+}
+#content-suspects .mugshot { background-image: url(./assets/villains/mystery_villain.jpg); }
+#content-suspects .mugshot[data-id="0"] { background-image: url(./assets/villains/captain_catastrophe.jpg); }
+#content-suspects .mugshot[data-id="1"] { background-image: url(./assets/villains/sergeant_mayo.jpg); }
+#content-suspects .mugshot[data-id="2"] { background-image: url(./assets/villains/ddd.jpg); }
+#content-suspects .mugshot[data-id="3"] { background-image: url(./assets/villains/jay_son.jpg); }
+#content-suspects .mugshot[data-id="4"] { background-image: url(./assets/villains/melia_azedarach.jpg); }
+#content-suspects .mugshot[data-id="5"] { background-image: url(./assets/villains/sir_nubs.jpg); }
+#content-suspects .mugshot[data-id="6"] { background-image: url(./assets/villains/slither_scopes.jpg); }
+
+#content-weapons {
+	overflow: hidden auto;
+}
+#content-weapons .nes-container {
+	float: left;
+	width: 100%;
+}
+#content-weapons ul {
+	margin-left: 141px;
+}
+#content-weapons .mugshot {
+	float: left;
+	width: 162px;
+	height: 190px;
+	display: block;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	border: 6px solid;
+	border-image-slice: 3;
+	border-image-width: 3;
+	border-image-repeat: stretch;
+	border-image-source: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8" ?><svg version="1.1" width="8" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M3 1 h1 v1 h-1 z M4 1 h1 v1 h-1 z M2 2 h1 v1 h-1 z M5 2 h1 v1 h-1 z M1 3 h1 v1 h-1 z M6 3 h1 v1 h-1 z M1 4 h1 v1 h-1 z M6 4 h1 v1 h-1 z M2 5 h1 v1 h-1 z M5 5 h1 v1 h-1 z M3 6 h1 v1 h-1 z M4 6 h1 v1 h-1 z" fill="rgb(255,255,255)" /></svg>');
+	border-image-outset: 0;
+}
+/* #content-weapons .mugshot { background-image: url(./assets/villains/mystery_villain.jpg); } */
+#content-weapons .mugshot[data-id="0"] { background-image: url(./assets/weapons/shrink_ray.jpg); }
+#content-weapons .mugshot[data-id="1"] { background-image: url(./assets/weapons/toilet_paper_vacuum.jpg); }
+#content-weapons .mugshot[data-id="2"] { background-image: url(./assets/weapons/chocolate_melting_laser.jpg); }
+#content-weapons .mugshot[data-id="3"] { background-image: url(./assets/weapons/hypnotic_glasses.jpg); }
+#content-weapons .mugshot[data-id="4"] { background-image: url(./assets/weapons/water_balloon_cannon.jpg); }
+
+@keyframes shake {
+	0% { transform: translateX(1px);}
+	10% { transform: translateX(-1px);}
+	20% { transform: translateX(-3px);}
+	30% { transform: translateX(3px);}
+	40% { transform: translateX(1px);}
+	50% { transform: translateX(-1px);}
+	60% { transform: translateX(-3px);}
+	70% { transform: translateX(X3px);}
+	80% { transform: translateX(-1px);}
+	90% { transform: translateX(1px);}
+	100% { transform: translateX(1px);}
+}
+@keyframes shake2 {
+	0% { transform: translateX(1px) scale(0.6);}
+	10% { transform: translateX(-1px) scale(0.6);}
+	20% { transform: translateX(-3px) scale(0.6);}
+	30% { transform: translateX(3px) scale(0.6);}
+	40% { transform: translateX(1px) scale(0.6);}
+	50% { transform: translateX(-1px) scale(0.6);}
+	60% { transform: translateX(-3px) scale(0.6);}
+	70% { transform: translateX(X3px) scale(0.6);}
+	80% { transform: translateX(-1px) scale(0.6);}
+	90% { transform: translateX(1px) scale(0.6);}
+	100% { transform: translateX(1px) scale(0.6);}
+}
+
+.game-container .scene > .tablet,
+.game-container .container {
+	transition: margin-left 0.8s;
+}
+.game-container.tablethide .scene > .tablet,
+.game-container.tablethide .container {
+	margin-left: -700px;
+}
+
+#skip-intro-btn {
+	position: absolute;
+	right: 20px;
+	top: 5px;
+}
