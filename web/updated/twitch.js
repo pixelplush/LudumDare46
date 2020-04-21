@@ -7,7 +7,7 @@ ComfyJS.onCommand = ( user, command, message, flags, extra ) => {
 };
 
 ComfyJS.onChat = ( user, message, flags, self, extra ) => {
-	let win = checkAnswer( message );
+	let win = checkAnswer( message, user );
 	if( win ) {
 		winScene();
 	}

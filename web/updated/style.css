@@ -350,3 +350,8 @@ main {
 .is-twitch::after {
 	box-shadow: inset -4px -4px #6441a4 !important;
 }
+
+#answer-window {
+	margin: 0;
+	width: 1280px;
+}

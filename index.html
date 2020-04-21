@@ -55,6 +55,10 @@
 					</div>
 				</div>
 			</div>
+			<div id="answer-window" class="nes-container with-title is-dark is-centered nes-text is-error" hidden="true">
+				<p class="title">Breaking News: Time Criminal Captured!</p>
+				<p id="correct-answer" class="nes-text is-error"></p>
+			</div>
 			<div class="modal-container" hidden="true">
 				<div class="modal">
 					<dialog class="nes-dialog is-dark" id="dialog-dark">
@@ -221,6 +225,13 @@
 			    document.querySelector( ".modal-container" ).setAttribute( "hidden", "true" );
 			});
 
+			document.getElementById( "channel_field" ).addEventListener( "keyup", function(event) {
+				event.preventDefault();
+				if( event.keyCode === 13 ) {
+					document.getElementById( "start-with-twitch" ).click();
+				}
+			});
+
 			document.getElementById( "answer_field" ).addEventListener( "keyup", function(event) {
 				event.preventDefault();
 				if( event.keyCode === 13 ) {
@@ -232,7 +243,7 @@
 				let answer = document.getElementById( "answer_field" ).value;
 				sounds[ "answer" ].play();
 				console.log( answer );
-				let win = checkAnswer( answer );
+				let win = checkAnswer( answer, "" );
 				if( win ) {
 					winScene();
 				} else {

@@ -302,9 +302,21 @@ function generateClues( suspect, weapon, loc, date, number = 100 ) {
     return sus;
 }
 
-function checkAnswer( text ) {
+function checkAnswer( text, user ) {
     let answer = `${suspect.name} with a ${weapon.name} at ${answerLocation.name} in ${answerDate}`;
-	return text.toLowerCase().trim() === answer.toLowerCase();
+    let isCorrect = text.toLowerCase().trim() === answer.toLowerCase();
+    if( isCorrect ) {
+        setTimeout( () => {
+            document.getElementById( "answer-window" ).removeAttribute( "hidden" );
+            if( user ) {
+                document.getElementById( "correct-answer" ).innerText = `${user}: ${answer}`;
+            }
+            else {
+                document.getElementById( "correct-answer" ).innerText = `${answer}`;
+            }
+        }, 3000 );
+    }
+	return isCorrect;
 }
 
 function replaceClue( suspect, weapon, loc, date, sentence ) {
