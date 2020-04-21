@@ -141,6 +141,10 @@ function appendAll() {
         document.querySelector(".scene .girl .tablet").appendChild( images[i] );
     }
 
+    images[35].style.opacity = "0";
+    images[35].dataset.pose = 4;
+    document.querySelector(".scene .girl .eyes").appendChild( images[35] );
+
     scenes.setBodyType(0);
 
     document.querySelector(".scene").style.opacity = "1";
