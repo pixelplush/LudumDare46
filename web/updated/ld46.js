@@ -304,7 +304,6 @@ function generateClues( suspect, weapon, loc, date, number = 100 ) {
 
 function checkAnswer( text ) {
     let answer = `${suspect.name} with a ${weapon.name} at ${answerLocation.name} in ${answerDate}`;
-    return true;
 	return text.toLowerCase().trim() === answer.toLowerCase();
 }
 

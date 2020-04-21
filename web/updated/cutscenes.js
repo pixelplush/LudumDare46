@@ -181,6 +181,10 @@ function updateCutscene() {
 			voice_audios[i].pause();
 		}
 		playVoice(4);
+		speechBubble( "Hmm. That doesn't seem right.", 600, 2100, () => {
+			speechBubble( "Try again.", 800, 600, () => {
+			});
+		});
 		scenes.setBodyType(1);
 		animateMouth(4, function(){
 			scenes.setBodyType(0);
@@ -192,6 +196,10 @@ function updateCutscene() {
 			voice_audios[i].pause();
 		}
 		playVoice(5);
+		speechBubble( "Are you sure this is the one?", 250, 1350, () => {
+			speechBubble( "Maybe take another look.", 600, 1200, () => {
+			});
+		});
 		scenes.setBodyType(1);
 		scenes.setBrows(true);
 		animateMouth(4, function(){
