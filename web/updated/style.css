@@ -129,6 +129,15 @@ main {
 }
 .scene > .tablet.wrong { animation: shake 0.5s; }
 .game-container > .container.wrong { animation: shake2 0.5s; }
+.scene .speech-bubble {
+	position: absolute;
+	margin-top: 140px;
+	left: 40%;
+	width: 30%;
+	margin-left: -32%;
+	z-index: 800;
+}
+.scene .speech-bubble.right { margin-left: -5%; }
 
 
 #content-suspects {

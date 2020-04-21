@@ -21,6 +21,8 @@ function updateCutscene() {
 	switch( cutscene ) {
 	case 0:	// Start Game
 		playVoice(0);
+		speechBubble( "OH! Here you are! I have been looking all over for you!", 1000, 4000, () => {
+		});
 		animateMouth(5, function(){
 			scenes.setBrows(true);
 			setCutscene(1);
@@ -28,6 +30,20 @@ function updateCutscene() {
 		break;
 	case 1: // Intro
 		playVoice(1);
+		speechBubble( "Listen to me, this is very important and we don't have time to spare.", 0, 5000, () => {
+			speechBubble( "I'm not gonna tell you who I am... that can make an even greater mess.", 500, 4500, () => {
+				speechBubble( "All you need to know is that I come from the future where...", 500, 2500, () => {
+					speechBubble( "Something has just gone terribly wrong.", 200, 2600, () => {
+						speechBubble( "An apocalypse started by someone evil...", 200, 2600, () => {
+							speechBubble( "That destroyed our world.", 200, 2000, () => {
+								speechBubble( "And now there's almost nothing left.", 200, 3000, () => {
+								});
+							});
+						});
+					});
+				});
+			});
+		});
 		scenes.setBodyType(1);
 		scenes.setBrows(false);
 		animateMouth(13, function(){
@@ -39,6 +55,14 @@ function updateCutscene() {
 		break;
 	case 2:
 		playVoice(2);
+		speechBubble( "The problem is...", 400, 1400, () => {
+			speechBubble( "No one knows the exact moment when everything started falling apart.", 400, 3900, () => {
+				speechBubble( "If we could figure that part out...", 800, 2800, () => {
+					speechBubble( "Maybe all of mankind could be saved.", 600, 2200, () => {
+					});
+				});
+			});
+		});
 		scenes.setBodyType(3);
 		scenes.setBrows(false);
 		animateMouth(6, function(){
@@ -50,6 +74,20 @@ function updateCutscene() {
 		break;
 	case 3:
 		playVoice(3);
+		speechBubble( "We gathered information about all possible suspects in this tablet.", 500, 4600, () => {
+			speechBubble( "And while the tablet did give us answers...", 700, 2800, () => {
+				speechBubble( "It's all gibberish for some reason.", 500, 2400, () => {
+					speechBubble( "You are one of the brightest minds in our history.", 800, 3300, () => {
+						speechBubble( "Which is why I'm here.", 200, 1100, () => {
+							speechBubble( "Could you take a look at it?", 500, 1100, () => {
+								speechBubble( "We need information about who did it, when, and how.", 700, 3700, () => {
+								});
+							});
+						});
+					});
+				});
+			});
+		});
 		scenes.setBodyType(2); // because I forgot to switch the body types, shame on me
 		scenes.setBrows(false);
 		animateMouth(10, function(){
@@ -184,6 +222,23 @@ function playVoice( id ) {
     voice_audios[id].play();
 }
 
+function speechBubble( text, delay, length, fin ) {
+	if( !skipped ) {
+		setTimeout( () => {
+			document.getElementById( "speech-bubble" ).removeAttribute( "hidden" );
+			document.getElementById( "speech-bubble-text" ).innerText = text;
+			setTimeout( () => {
+				document.getElementById( "speech-bubble" ).setAttribute( "hidden", true );
+				fin();
+			}, length );
+		}, delay );
+	}
+	else {
+		document.getElementById( "speech-bubble" ).setAttribute( "hidden", true );
+		fin();
+	}
+}
+
 function animateMouth( length, fin ) {
 	if (!skipped) {
 		var startTime = new Date(),
@@ -219,6 +274,7 @@ function animateTablet( length, fin ) {
 
 function skip() {
 	document.querySelector("#skip-intro-btn").style.display = "none";
+	document.getElementById( "speech-bubble" ).setAttribute( "hidden", true );
 	setCutscene(5);
 }
 

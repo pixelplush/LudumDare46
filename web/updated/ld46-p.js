@@ -187,6 +187,7 @@ var scenes = {
     // true, false
     setBodyRight: function ( isRight ) {
         document.querySelector(".scene .girl").className = isRight ? "girl right" : "girl";
+        document.querySelector(".scene .speech-bubble").className = isRight ? "speech-bubble right nes-balloon from-right" : "speech-bubble nes-balloon from-right";
     },
     // 0 - 5
     setBlinkState: function( state ) {
