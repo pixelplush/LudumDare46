@@ -58,6 +58,7 @@ function updateCutscene() {
 		setTimeout(function(){
 			animateTablet(10, function(){
 				scenes.setBrows(false);
+				document.querySelector( ".scene .girl .eyes img" ).style.opacity = "1";
 				setTimeout(function(){
 					setCutscene(4);
 				},5000);
@@ -65,14 +66,51 @@ function updateCutscene() {
 		}, 4000);
 		break;
 	case 4:
+		document.querySelector( ".scene .girl .eyes img" ).style.opacity = "0";
 		scenes.setBrows(false);
 		scenes.setBodyType(0);
 		scenes.setBodyRight(true);
 		scenes.showTablet();
 		break;
+	case 10: // End Cutscene!
+		playVoice(6);
+		animateMouth(5, function(){
+			scenes.setBrows(true);
+			setCutscene(11);
+		});
+		break;
+	case 11: // End Cutscene!
+		playVoice(7);
+		animateMouth(3, function(){
+			scenes.setBrows(true);
+			setCutscene(12);
+		});
+		break;
+	case 12: // End Cutscene!
+		playVoice(8);
+		animateMouth(3, function(){
+			scenes.setBrows(true);
+			setCutscene(13);
+		});
+		break;
+	case 13: // End Cutscene!
+		playVoice(9);
+		animateMouth(7, function(){
+			scenes.setBrows(true);
+			setCutscene(14);
+		});
+		break;
+	case 14: // End Cutscene!
+		playVoice(10);
+		animateMouth(3, function(){
+			scenes.setBrows(true);
+			setCutscene(11);
+		});
+		break;
 	}
 }
 function setCutscene( number ) {
+	// clearTimeout( delayFrame );
 	cutscene = number;
 	updateCutscene();
 }
