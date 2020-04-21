@@ -19,7 +19,7 @@
 	<body>
 		<div class="game-container tablethide">
 			<div class="top-left front">
-				<button id="volume-control" type="button" class="nes-btn is-warning"><i id="volume-icon" class="fas fa-volume-mute"></i></button>
+				<button id="volume-control" type="button" class="nes-btn is-warning"><i id="volume-icon" class="fas fa-volume-down"></i></button>
 			</div>
 			<div class="scene" style="opacity: 0">
 				<div class="background"></div>
@@ -32,7 +32,14 @@
 					<div class="tablet"></div>
 				</div>
 				<div class="tablet"></div>
-				<button id="skip-intro-btn" type="button" class="nes-btn" onClick="skip()">Skip intro</button>
+				<button id="skip-intro-btn" type="button" class="nes-btn" onClick="skip()" hidden="true">SKIP</button>
+				<div id="start-game-scene">
+					<button type="button" class="nes-btn is-success" onClick="startGame()"><i class="nes-icon play"></i> START</button>
+					<!-- <button type="button" class="nes-btn is-primary is-twitch" onClick="startGame()"><i class="nes-icon twitch"></i> TWITCH</button> -->
+					<div class="title-image">
+						<img src="web/assets/title.png"/>
+					</div>
+				</div>
 			</div>
 			<div class="modal-container" hidden="true">
 				<div class="modal">
@@ -50,21 +57,24 @@
 									</thead> -->
 									<tbody>
 										<tr>
-											<td width="25%">
-												<center>
-													<button type="button" class="nes-btn is-primary" onclick="decode(0)">A</button>
-													<button type="button" class="nes-btn is-primary" onclick="decode(1)">B</button>
-													<button type="button" class="nes-btn is-primary" onclick="decode(2)">C</button>
-													<button type="button" class="nes-btn is-success" onclick="decode(3)">D</button>
-													<button type="button" class="nes-btn is-success" onclick="decode(4)">E</button>
-													<button type="button" class="nes-btn is-success" onclick="decode(5)">F</button>
-													<button type="button" class="nes-btn is-warning" onclick="decode(6)">G</button>
-													<button type="button" class="nes-btn is-warning" onclick="decode(7)">H</button>
-													<button type="button" class="nes-btn is-warning" onclick="decode(8)">I</button>
-													<button type="button" class="nes-btn is-error" onclick="decode(9)">J</button>
-													<button type="button" class="nes-btn is-error" onclick="decode(10)">K</button>
-													<button type="button" class="nes-btn is-error" onclick="decode(11)">L</button>
-												</center>
+											<td width="25%" class="h-center">
+												<div class="decode-grid">
+													<button type="button" class="grid-item nes-btn is-primary" onclick="decode(0)">A</button>
+													<button type="button" class="grid-item nes-btn is-primary" onclick="decode(1)">B</button>
+													<button type="button" class="grid-item nes-btn is-primary" onclick="decode(2)">C</button>
+													
+													<button type="button" class="grid-item nes-btn is-success" onclick="decode(3)">D</button>
+													<button type="button" class="grid-item nes-btn is-success" onclick="decode(4)">E</button>
+													<button type="button" class="grid-item nes-btn is-success" onclick="decode(5)">F</button>
+													
+													<button type="button" class="grid-item nes-btn is-warning" onclick="decode(6)">G</button>
+													<button type="button" class="grid-item nes-btn is-warning" onclick="decode(7)">H</button>
+													<button type="button" class="grid-item nes-btn is-warning" onclick="decode(8)">I</button>
+	
+													<button type="button" class="grid-item nes-btn is-error" onclick="decode(9)">J</button>
+													<button type="button" class="grid-item nes-btn is-error" onclick="decode(10)">K</button>
+													<button type="button" class="grid-item nes-btn is-error" onclick="decode(11)">L</button>
+												</div>
 											</td>
 											<td>
 												<textarea id="decode-text" rows="15" class="nes-textarea is-dark"></textarea>
@@ -201,7 +211,7 @@
 				}
 			});
 
-			var volumeSetting = 0;
+			var volumeSetting = 1;
 			document.getElementById( "volume-control" ).addEventListener( "click", function( event ) {
 				volumeSetting = ( volumeSetting + 1 ) % 3;
 				switch( volumeSetting ) {

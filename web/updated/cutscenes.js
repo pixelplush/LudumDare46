@@ -109,7 +109,7 @@ function setCutscene( number ) {
 function loadVoice() {
     loaded_voices++;
     if ( loaded_voices == voices.length ) {
-        setCutscene(0);
+        // setCutscene(0);
         // music.volume(0);
     }
 }
@@ -173,7 +173,4 @@ function skip() {
 	setCutscene(5);
 }
 
-setTimeout( () => {
-	Howler.volume(1);
-}, 1000 );
 preloadVoices();

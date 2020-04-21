@@ -30,13 +30,12 @@ Object.keys( soundDB ).map( s => {
 		rate: soundDB[ s ].rate
 	});
 });
-Howler.volume( 0 ); // Default to muted
+Howler.volume( 0.25 ); // Default to normal
 let music = new Howl( {
 	src: [ "web/assets/music/LD46_BG.mp3" ],
     loop: true,
 });
 music.volume( 0.5 ); // Set music volume to be 0.5
-music.play();
 
 var clueSentences = [];
 var peculiarSuspects = [];
@@ -338,3 +337,29 @@ function getRandomInt( max ) {
 function getRandomElement( arr ) {
     return arr[ getRandomInt( arr.length ) ];
 }
+
+function startGame() {
+    document.getElementById( "start-game-scene" ).setAttribute( "hidden", true );
+    music.play();
+    setCutscene(0);
+    document.getElementById( "skip-intro-btn" ).removeAttribute( "hidden" );
+}
+
+var nextBlink = Math.floor( Math.random() * 5000 );
+var isBlinking = false;
+setInterval( () => {
+    if( isBlinking ) {
+        let blink = ( scenes.blinkState + 1 ) % 6;
+        scenes.setBlinkState( blink );
+        if( blink === 0 ) {
+            isBlinking = false;
+            nextBlink = 3000 + Math.floor( Math.random() * 5000 );
+        }
+    }
+    else {
+        nextBlink -= 60;
+        if( nextBlink <= 0 ) {
+            isBlinking = true;
+        }
+    }
+}, 60 );
