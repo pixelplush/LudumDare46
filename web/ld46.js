@@ -114,7 +114,7 @@ async function SetupGame( code = "" ) {
         mugshot.setAttribute( "class", "mugshot" );
         mugshot.setAttribute( "data-id", index );
         contain.append( mugshot );
-		
+
         let list = document.createElement( "ul" );
         list.setAttribute( "class", "nes-list is-disc nes-text is-error" );
 
@@ -291,7 +291,7 @@ function decode( decoderId ) {
 	}
 }
 
-function generateClues( suspect, weapon, loc, date, number = 40 ) {
+function generateClues( suspect, weapon, loc, date, number = 100 ) {
     let sus = [];
     for( var i = 0; i < number; i++ ) {
         let clue = getRandomElement( clueSentences );

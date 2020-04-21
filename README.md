@@ -4,7 +4,9 @@ Ludum Dare 46 Game about Post-Apocalyptic Time Travel to Save The World!
 _A mysterious and magical girl has come from the future where something has gone terribly wrong. An apocalypse started by someone evil destroyed our world and now there is almost nothing left! And no one knows the exact moment when everything started falling apart. Use the Super Tablet device to decode secret memos and figure out who did it, when, and how. Are you up to the challenge to save the universe?_
 
 ## To Play
-Open https://www.pixelplush.dev/LudumDare46 and interact with the in-game Super Tablet to decode secret memos and use the clues to figure out the villain and save the timeline of the universe! Good luck!
+Open https://www.pixelplush.dev/LudumDare46 and interact with the in-game Super Tablet to decode secret memos and use the clues to figure out the villain and save the timeline of the universe!
+***Each puzzle ID shown on the tablet is unique so you can share it with your friends to see the same secret memos!***
+Good luck!
 
 ## Setup Instructions for streamers
 Replace the **_[yourchannel]_** part of the URL with the name of your Twitch channel to guess pawswords with your viewers, and if you would like to play just through chat, add the following URL as a Browser Source into OBS or XSplit:
