@@ -38,7 +38,7 @@
 				<button id="skip-intro-btn" type="button" class="nes-btn" onClick="skip()" hidden="true">SKIP</button>
 				<div id="start-game-scene">
 					<button type="button" class="nes-btn is-success" onClick="startGame()"><i class="nes-icon play"></i> START</button>
-					<!-- <button type="button" class="nes-btn is-primary is-twitch" onClick="startGame()"><i class="nes-icon twitch"></i> TWITCH</button> -->
+					<button type="button" class="nes-btn is-primary is-twitch" onClick="document.querySelector('.modal2-container').removeAttribute('hidden');"><i class="nes-icon twitch"></i> VIA TWITCH</button>
 					<div class="title-image">
 						<img src="web/assets/title.png"/>
 					</div>
@@ -107,6 +107,21 @@
 					</dialog>
 				</div>
 			</div> <!-- .modal-container -->
+			<div class="modal2-container" hidden="true">
+				<div class="modal2">
+					<div class="nes-container is-dark is-rounded with-title">
+						<p class="title">Play with Twitch chat</p>
+						<p>Let your viewers solve with you via chat!</p>
+						<p>Set your channel here and share the puzzle code on the tablet.</p>
+						<br/>
+						<div class="nes-field">
+							<label for="channel_field"><i class="nes-icon twitch"></i> Your Twitch Channel</label>
+							<input type="text" id="channel_field" class="nes-input" placeholder="Enter Channel Username">
+						</div>
+						<button id="start-with-twitch" type="button" class="nes-btn is-primary is-twitch" onClick="startGame()">START GAME</button>
+					</div>
+				</div>
+			</div> <!-- .modal2-container -->
 			<div class="container" style="opacity: 0">
 				<header class="sticky">
 					<div class="container">

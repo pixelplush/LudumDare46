@@ -319,7 +319,7 @@ function replaceClue( suspect, weapon, loc, date, sentence ) {
         .replace( /EFFECT/g, weapon.effect )
         .replace( /SHARPNESS/g, weapon.sharpness < 1 ? "dull" : ( weapon.sharpness < 5 ? "tough" : "sharp" ) )
         .replace( /COLOR/g, weapon.color )
-        .replace( /SIZE/g, weapon.size === "small" ? "small" : ( weapon.size === "medium" ? "big" : ( weapon.size === "large" ? "huge" : "mysterious in size" ) ) )
+        .replace( /SIZE/g, weapon.size === "small" ? "small" : ( weapon.size === "medium" ? "average-sized" : ( weapon.size === "large" ? "huge" : "mysterious in size" ) ) )
         .replace( /TYPE/g, weapon.type )
 		.replace( /W3W/g, loc.what3words )
 		.replace( /LAT/g, loc.lat )
@@ -338,6 +338,10 @@ function getRandomElement( arr ) {
 }
 
 function startGame() {
+    document.querySelector( ".modal2-container" ).setAttribute( "hidden", true );
+    channel = document.getElementById( "channel_field" ).value;
+    console.log( channel );
+    ComfyJS.Init( channel );
     document.getElementById( "start-game-scene" ).setAttribute( "hidden", true );
     music.play();
     setCutscene(0);
