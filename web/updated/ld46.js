@@ -336,6 +336,7 @@ function replaceClue( suspect, weapon, loc, date, sentence ) {
 		.replace( /W3W/g, loc.what3words )
 		.replace( /LAT/g, loc.lat )
 		.replace( /LON/g, loc.long )
+        .replace( /LOCATION/g, loc.name )
 		.replace( /LANDMARK/g, getRandomElement( loc.landmarks ) )
 		.replace( /FOOD/g, getRandomElement( loc.food ) )
 		.replace( /YEAR/g, date )
